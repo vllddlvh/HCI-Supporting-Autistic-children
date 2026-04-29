@@ -1,42 +1,61 @@
 <template>
   <div class="w-full max-w-4xl mx-auto relative min-h-[400px]">
     
-    <Transition name="slide-fade" mode="out-in">
-      <div :key="question.id" class="w-full flex flex-col gap-8">
+    <Transition name="bounce" mode="out-in">
+      <div :key="question.id" class="w-full flex flex-col gap-6 pt-4 pb-2">
         
-        <div class="w-full">
-          <div class="bg-white p-6 md:p-8 rounded-3xl shadow-lg border-2 border-slate-100 relative group hover:border-blue-200 transition-all duration-300">
-            <i class="fas fa-quote-left text-blue-100 text-6xl absolute -top-3 -left-1 z-0"></i>
+        <!-- Story Card -->
+        <div class="relative w-full max-w-3xl mx-auto group z-20">
+          <!-- Background Decoration -->
+          <div class="absolute inset-0 bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300 rounded-3xl rotate-2 group-hover:rotate-3 transition-transform duration-500 shadow-lg z-0"></div>
+          
+          <!-- Main Card -->
+          <div class="relative bg-white p-5 md:p-6 rounded-3xl shadow-md border-[4px] border-white transform -rotate-1 group-hover:rotate-0 transition-transform duration-500 z-10 flex flex-col gap-3">
             
-            <p class="text-xl md:text-2xl text-slate-700 font-medium relative z-10 leading-relaxed indent-8">
+            <!-- Cute Quote Icon -->
+            <div class="absolute -top-5 -left-4 w-12 h-12 bg-gradient-to-br from-amber-300 to-orange-400 rounded-full flex items-center justify-center shadow-md border-[3px] border-white rotate-12 z-20">
+              <i class="fas fa-quote-left text-white text-xl"></i>
+            </div>
+            
+            <p class="text-lg md:text-xl text-slate-700 font-bold leading-relaxed indent-6">
               {{ question.story }}
             </p>
 
-            <div class="mt-6 flex justify-end">
-                <button @click="playStory" class="text-blue-500 font-bold text-base flex items-center gap-2 hover:bg-blue-50 px-4 py-2 rounded-xl transition cursor-pointer active:scale-95">
-                  <i class="fas fa-volume-up text-xl"></i> Nghe kể chuyện
+            <div class="flex justify-end mt-1">
+                <button @click="playStory" class="bg-gradient-to-r from-sky-400 to-blue-500 text-white font-black text-base flex items-center gap-2 px-5 py-2 rounded-full shadow-md border-[3px] border-white hover:scale-105 active:scale-95 transition-all group/audio">
+                  <i class="fas fa-volume-up text-xl group-hover/audio:animate-bounce"></i> Nghe kể chuyện
                 </button>
             </div>
           </div>
         </div>
 
-        <div class="w-full flex flex-col items-center">
+        <div class="w-full flex flex-col items-center relative z-10">
           
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center drop-shadow-sm">
-            {{ question.question }}
-          </h3>
+          <!-- Question Title -->
+          <div class="bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full shadow-sm mb-4 border-[3px] border-white inline-block transform -rotate-1">
+            <h3 class="text-xl md:text-2xl font-black text-rose-500 text-center flex items-center gap-2">
+              <span class="text-2xl animate-pulse">🤔</span>
+              {{ question.question }}
+              <span class="text-2xl animate-pulse">❓</span>
+            </h3>
+          </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full px-2">
+          <!-- Options Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 w-full max-w-2xl px-2">
             <button 
-              v-for="opt in question.options" 
+              v-for="(opt, index) in question.options" 
               :key="opt"
               @click="checkAnswer(opt)"
               :disabled="isProcessing"
-              class="kid-choice-row group"
-              :class="getButtonClass(opt)"
+              class="relative overflow-hidden group py-4 px-5 rounded-2xl font-black text-lg md:text-xl transition-all duration-300 flex items-center justify-between disabled:cursor-default active:mt-1"
+              :class="getButtonClass(opt, index)"
             >
-              <span class="relative z-10">{{ opt }}</span>
-              <span class="text-4xl ml-3 relative z-10 filter drop-shadow-md transition-transform group-hover:scale-110">
+              <!-- Background Decoration -->
+              <div class="absolute -left-4 -top-4 w-16 h-16 bg-white/20 rounded-full blur-md group-hover:scale-150 transition-transform"></div>
+              <div class="absolute -right-4 -bottom-4 w-12 h-12 bg-white/10 rounded-full blur-lg group-hover:scale-150 transition-transform delay-100"></div>
+              
+              <span class="relative z-10 drop-shadow-sm tracking-wide">{{ opt }}</span>
+              <span class="text-4xl md:text-5xl relative z-10 drop-shadow-md group-hover:scale-110 transition-transform origin-bottom">
                   {{ getEmoji(opt) }}
               </span>
             </button>
@@ -47,9 +66,9 @@
       </div>
     </Transition>
 
-    <div v-if="showSuccessFeedback" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 animate-bounce-in pointer-events-none whitespace-nowrap">
-       <div class="bg-green-500 text-white text-2xl md:text-4xl font-bold px-10 py-5 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.2)] border-4 border-white flex items-center gap-3">
-         <span>Chính xác!</span> <i class="fas fa-star text-yellow-300 animate-spin-slow"></i>
+    <div v-if="showSuccessFeedback" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none whitespace-nowrap">
+       <div class="bg-green-500 text-white text-3xl md:text-5xl font-black px-12 py-6 rounded-[3rem] shadow-[0_20px_40px_rgba(34,197,94,0.4)] border-8 border-white flex items-center gap-4 animate-feedback-pop">
+         <span>Chính xác!</span> <i class="fas fa-star text-yellow-300 animate-spin-slow text-5xl"></i>
        </div>
     </div>
 
@@ -78,26 +97,27 @@ const getEmoji = (text) => {
     return '🤔';
 }
 
-const getButtonClass = (opt) => {
-    // 1. Trạng thái ĐÚNG (Luôn hiện xanh khi đã có kết quả)
-    // Giúp trẻ thấy đáp án đúng kể cả khi chọn sai
+const colors = [
+  'bg-emerald-400 text-white border-b-[6px] border-emerald-600 hover:bg-emerald-300 hover:border-emerald-500',
+  'bg-sky-400 text-white border-b-[6px] border-sky-600 hover:bg-sky-300 hover:border-sky-500',
+  'bg-amber-400 text-white border-b-[6px] border-amber-600 hover:bg-amber-300 hover:border-amber-500',
+  'bg-rose-400 text-white border-b-[6px] border-rose-600 hover:bg-rose-300 hover:border-rose-500'
+];
+
+const getButtonClass = (opt, index) => {
     if (selectedOpt.value && opt === question.value.correct) {
-        return "bg-green-500 border-b-4 border-green-700 text-white shadow-lg scale-[1.02]";
+        return "bg-green-500 text-white border-b-[6px] border-green-700 scale-105 shadow-[0_0_30px_rgba(34,197,94,0.6)] z-10 animate-bounce"; 
     }
 
-    // 2. Trạng thái SAI (Chỉ hiện đỏ ở nút vừa bấm)
     if (selectedOpt.value === opt && opt !== question.value.correct) {
-        return "bg-red-500 border-b-4 border-red-700 text-white animate-shake";
+        return "bg-red-500 text-white border-b-0 translate-y-1 opacity-80 scale-95"; 
     }
 
-    // 3. Trạng thái KHÔNG CHỌN (Mờ đi khi đã có kết quả)
     if (selectedOpt.value) {
-        return "bg-slate-100 border-b-4 border-slate-200 text-slate-400 opacity-50 cursor-not-allowed";
+        return "bg-slate-200 text-slate-400 border-b-[3px] border-slate-300 opacity-50 scale-95 grayscale-[50%]"; 
     }
     
-    // 4. Trạng thái BÌNH THƯỜNG (Chưa bấm gì)
-    // Màu trắng, viền xám dày, hover lên thì viền xanh
-    return "bg-white border-b-4 border-slate-300 text-slate-600 hover:border-blue-400 hover:bg-blue-50 active:border-b-0 active:translate-y-1 active:shadow-inner";
+    return `${colors[index % colors.length]} hover:-translate-y-1 active:translate-y-1 active:border-b-0`; 
 }
 
 const checkAnswer = (opt) => {
@@ -111,7 +131,7 @@ const checkAnswer = (opt) => {
         setTimeout(() => {
             emit('next', true); 
             resetState();
-        }, 1200);
+        }, 1500);
     } else {
         setTimeout(() => {
             emit('next', false); 
@@ -128,10 +148,10 @@ const resetState = () => {
 
 const playStory = () => {
   if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel(); // Stop any ongoing speech
+    window.speechSynthesis.cancel(); 
     const speech = new SpeechSynthesisUtterance(question.value.story);
     speech.lang = 'vi-VN';
-    speech.rate = 0.9; // Slightly slower for kids
+    speech.rate = 0.9; 
     window.speechSynthesis.speak(speech);
   } else {
     alert("Trình duyệt của bạn không hỗ trợ đọc tiếng Việt ạ.");
@@ -140,26 +160,37 @@ const playStory = () => {
 </script>
 
 <style scoped>
-/* Transition */
-.slide-fade-enter-active { transition: all 0.5s ease-out; }
-.slide-fade-leave-active { transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1); }
-.slide-fade-enter-from { transform: translateY(20px); opacity: 0; }
-.slide-fade-leave-to { transform: translateY(-20px); opacity: 0; }
-
-/* Animation Rung Lắc khi sai */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  75% { transform: translateX(8px); }
+.bounce-enter-active {
+  animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.animate-shake { animation: shake 0.4s ease-in-out; }
-
-@keyframes bounceIn {
-  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-  60% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.bounce-leave-active {
+  animation: bounce-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) reverse;
 }
-.animate-bounce-in { animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+
+@keyframes bounce-in {
+  0% { 
+    transform: scale(0.8) translateY(50px); 
+    opacity: 0; 
+  }
+  60% {
+    transform: scale(1.05) translateY(-10px);
+    opacity: 1;
+  }
+  100% { 
+    transform: scale(1) translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes feedbackPop {
+  0% { transform: translate(-50%, -50%) scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: translate(-50%, -50%) scale(1.1) rotate(5deg); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-feedback-pop { 
+  animation: feedbackPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; 
+}
 
 @keyframes spinSlow {
   from { transform: rotate(0deg); }
