@@ -240,25 +240,28 @@ const features = [
     </section>
 
     <!-- CTA Section -->
-    <section class="py-32 relative overflow-hidden">
-      <div class="absolute inset-0 bg-sky-500 -z-10"></div>
-      <!-- Decorative circles -->
-      <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-sky-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-      
-      <div class="container mx-auto px-6 text-center text-white space-y-10 relative z-10">
-        <h2 class="text-4xl md:text-6xl font-black leading-tight">Sẵn Sàng Để Con <br> Tỏa Sáng?</h2>
-        <p class="text-sky-100 text-xl font-medium max-w-2xl mx-auto">
-          Hãy cùng chúng tôi tạo nên một môi trường học tập hạnh phúc, nơi mỗi đứa trẻ đều được thấu hiểu và phát triển theo cách riêng của mình.
-        </p>
+    <section class="py-24 relative overflow-hidden px-6">
+      <div class="container mx-auto">
+        <div class="bg-gradient-to-br from-sky-500 to-sky-600 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-sky-200">
+          <!-- Decorative circles -->
+          <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-96 h-96 bg-sky-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+          
+          <div class="relative z-10 space-y-8">
+            <h2 class="text-4xl md:text-6xl font-black leading-tight">Sẵn Sàng Để Con <br> Tỏa Sáng?</h2>
+            <p class="text-sky-50 text-xl font-medium max-w-2xl mx-auto opacity-90">
+              Hãy cùng chúng tôi tạo nên một môi trường học tập hạnh phúc, nơi mỗi đứa trẻ đều được thấu hiểu và phát triển theo cách riêng của mình.
+            </p>
+          </div>
         
-        <div class="flex flex-col items-center gap-6 pt-6">
-          <router-link to="/register" class="kid-btn bg-white text-sky-600 text-2xl px-16 py-8 hover:bg-sky-50 transition-colors shadow-2xl shadow-sky-900/20">
-            Bắt đầu miễn phí ngay
-          </router-link>
-          <p class="text-sky-200/80 font-bold text-sm tracking-wide">
-            KHÔNG CẦN THẺ TÍN DỤNG • TRẢI NGHIỆM ĐẦY ĐỦ TÍNH NĂNG
-          </p>
+          <div class="flex flex-col items-center gap-6 pt-10 relative z-10">
+            <router-link to="/register" class="kid-btn bg-white text-sky-600 text-2xl px-16 py-8 hover:bg-sky-50 transition-all hover:scale-105 shadow-2xl shadow-sky-900/20">
+              Bắt đầu miễn phí ngay
+            </router-link>
+            <p class="text-sky-100/80 font-bold text-sm tracking-wide uppercase">
+              KHÔNG CẦN THẺ TÍN DỤNG • TRẢI NGHIỆM ĐẦY ĐỦ TÍNH NĂNG
+            </p>
+          </div>
         </div>
       </div>
     </section>

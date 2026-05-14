@@ -8,7 +8,7 @@
     </div>
 
     <!-- Header -->
-    <header class="px-6 py-8 flex items-center gap-6 max-w-5xl mx-auto w-full z-50">
+    <header class="px-6 py-4 md:py-6 flex items-center gap-6 max-w-5xl mx-auto w-full z-50">
       <button @click="goBack"
         class="glass-panel text-slate-500 hover:text-rose-500 text-2xl transition-all p-4 rounded-3xl hover:scale-110 active:scale-90 group">
         <i class="fas fa-times group-hover:rotate-90 transition-transform"></i>
@@ -32,7 +32,7 @@
       </div>
     </header>
 
-    <main class="flex-1 flex flex-col items-center justify-center px-4 pb-12 w-full overflow-y-auto relative z-10 no-scrollbar">
+    <main class="flex-1 flex flex-col items-center justify-center px-4 pb-6 w-full overflow-y-auto relative z-10 no-scrollbar">
 
       <div v-if="isLoading" class="text-center">
         <div class="glass-panel inline-flex flex-col items-center gap-6 px-12 py-10 rounded-[3rem] animate-float-gentle">

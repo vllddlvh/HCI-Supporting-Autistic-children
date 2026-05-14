@@ -29,6 +29,19 @@ export const useProgressStore = defineStore('progress', () => {
     avatar: "/default-avatar.png"
   });
 
+  // Tải thông tin từ localStorage nếu có
+  function loadUserInfo() {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+        const user = JSON.parse(savedUser);
+        userInfo.value = {
+            parentName: user.parent_name || user.parentName || "Phụ Huynh",
+            childName: user.child_name || user.childName || "Bé Bi",
+            avatar: user.avatar || "/default-avatar.png"
+        };
+    }
+  }
+
   // --- ACTIONS ---
 
   // 1. Hàm LOGOUT
@@ -168,6 +181,6 @@ export const useProgressStore = defineStore('progress', () => {
 
   return { 
     stars, currentStreak, levels, userInfo, reportData, isLoading,
-    fetchLevelsFromAPI, fetchReportData, isLessonLocked, claimChest, logout, addStars, completeLesson
+    fetchLevelsFromAPI, fetchReportData, isLessonLocked, claimChest, logout, addStars, completeLesson, loadUserInfo
   };
 });

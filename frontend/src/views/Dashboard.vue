@@ -208,7 +208,7 @@
           </div>
           <div class="flex flex-col justify-center">
             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">Chào mừng bé!</p>
-            <p class="text-2xl font-black text-slate-800 leading-tight">Bé {{ store.userInfo.name || 'Thợ Săn' }}</p>
+            <p class="text-2xl font-black text-slate-800 leading-tight">Bé {{ store.userInfo.childName || 'Thợ Săn' }}</p>
           </div>
         </div>
       </div>
@@ -261,27 +261,30 @@
       </div>
 
       <!-- Premium Promo Card (State of the art) -->
-      <div class="mt-auto bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 rounded-[3rem] p-8 text-white relative overflow-hidden group cursor-pointer shadow-2xl shadow-indigo-200 transition-transform hover:scale-[1.02]">
-        <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-        <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-sky-400/20 rounded-full blur-2xl"></div>
+      <div class="mt-8 bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 rounded-[3rem] p-10 text-white relative group cursor-pointer shadow-2xl shadow-indigo-200 transition-transform hover:scale-[1.02] flex flex-col items-center text-center gap-6">
+        <!-- Decorative elements -->
+        <div class="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-sky-400/20 rounded-full blur-2xl pointer-events-none"></div>
         
-        <div class="relative z-10 space-y-6">
-          <div class="flex justify-between items-start">
-            <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl">
-              <i class="fas fa-crown text-yellow-300 drop-shadow-md"></i>
-            </div>
-            <div class="bg-white/20 px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest border border-white/20">Pro Member</div>
-          </div>
-          
-          <div class="space-y-2">
-            <h4 class="font-black text-2xl leading-tight">Mở khóa<br/>Thế giới Cảm xúc</h4>
-            <p class="text-[11px] text-indigo-100 font-bold leading-relaxed opacity-90">Truy cập hơn 100+ bài học độc quyền và báo cáo phân tích AI chuyên sâu cho bé.</p>
-          </div>
-          
-          <button class="w-full py-4 bg-white text-indigo-700 font-black text-xs rounded-2xl uppercase tracking-[0.2em] shadow-xl hover:bg-sky-50 transition-colors active:scale-95">
-            Dùng thử 7 ngày
-          </button>
+        <!-- Content -->
+        <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl shadow-inner border border-white/20 relative z-10">
+          <i class="fas fa-crown text-yellow-300 drop-shadow-md"></i>
         </div>
+
+        <div class="bg-white/20 px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/20 backdrop-blur-sm relative z-10">
+          Pro Member
+        </div>
+        
+        <div class="space-y-3 relative z-10">
+          <h4 class="font-black text-2xl leading-tight">Mở khóa<br/>Thế giới Cảm xúc</h4>
+          <p class="text-[11px] text-indigo-100 font-bold leading-relaxed opacity-90 px-2">
+            Truy cập 100+ bài học độc quyền và báo cáo phân tích AI chuyên sâu.
+          </p>
+        </div>
+        
+        <button class="w-full py-4 bg-white text-indigo-700 font-black text-xs rounded-2xl uppercase tracking-[0.2em] shadow-xl hover:bg-sky-50 transition-all hover:scale-105 active:scale-95 relative z-10">
+          Dùng thử 7 ngày
+        </button>
       </div>
 
     </div>
@@ -300,6 +303,7 @@ const store = useProgressStore();
 const starBump = ref(false);
 
 onMounted(() => {
+    store.loadUserInfo();
     store.fetchLevelsFromAPI().then(() => {
         setTimeout(() => {
             const currentEl = document.getElementById('current-lesson-node');
@@ -321,12 +325,12 @@ const getLevelProgress = (level) => {
 
 const getLevelIcon = (index) => {
   const icons = [
-    'fas fa-seedling',
-    'fas fa-fish-fins',
-    'fas fa-user-astronaut',
-    'fas fa-rocket'
+    'fas fa-sun',
+    'fas fa-cloud-rainbow',
+    'fas fa-star-half-stroke',
+    'fas fa-trophy'
   ];
-  return icons[index] || 'fas fa-mountain-sun';
+  return icons[index] || 'fas fa-flag-checkered';
 };
 
 const getLessonState = (level, type) => {
@@ -348,11 +352,11 @@ const getNodeLabel = (type) => {
 
 const getLevelNodes = (level) => {
     return [
-        { type: 'flashcard', icon: 'fas fa-book-sparkles', shortLabel: 'Học thẻ', style: 'left: 50%; transform: translateX(-50%); top: 2%;', state: getLessonState(level, 'flashcard') },
+        { type: 'flashcard', icon: 'fas fa-clone', shortLabel: 'Học thẻ', style: 'left: 50%; transform: translateX(-50%); top: 2%;', state: getLessonState(level, 'flashcard') },
         { type: 'matching', icon: 'fas fa-puzzle-piece', shortLabel: 'Ghép cặp', style: 'left: 15%; top: 23%;', state: getLessonState(level, 'matching') },
-        { type: 'context', icon: 'fas fa-comment-dots', shortLabel: 'Câu chuyện', style: 'right: 15%; top: 43%;', state: getLessonState(level, 'context') },
-        { type: 'emotion_training', icon: 'fas fa-face-laugh-beam', shortLabel: 'Luyện tập', style: 'left: 15%; top: 63%;', state: getLessonState(level, 'emotion_training') },
-        { type: 'ai', icon: 'fas fa-camera-viewfinder', shortLabel: 'Camera', style: 'left: 50%; transform: translateX(-50%); top: 83%;', state: getLessonState(level, 'ai') }
+        { type: 'context', icon: 'fas fa-comment-dots', shortLabel: 'Tình huống', style: 'right: 15%; top: 43%;', state: getLessonState(level, 'context') },
+        { type: 'emotion_training', icon: 'fas fa-face-smile-wink', shortLabel: 'Luyện tập', style: 'left: 15%; top: 63%;', state: getLessonState(level, 'emotion_training') },
+        { type: 'ai', icon: 'fas fa-robot', shortLabel: 'Camera AI', style: 'left: 50%; transform: translateX(-50%); top: 83%;', state: getLessonState(level, 'ai') }
     ];
 };
 
@@ -426,11 +430,11 @@ const createFlyingStar = (startRect, endRect, delay) => {
 
 const getNodeStyle = (type) => {
   const styles = {
-    flashcard: { '--shadow-color': '#D97706', background: 'linear-gradient(135deg, #fbbf24, #f59e0b)' },
-    matching: { '--shadow-color': '#E11D48', background: 'linear-gradient(135deg, #fb7185, #f43f5e)' },
-    context: { '--shadow-color': '#0284C7', background: 'linear-gradient(135deg, #38bdf8, #0ea5e9)' },
-    emotion_training: { '--shadow-color': '#7C3AED', background: 'linear-gradient(135deg, #a78bfa, #8b5cf6)' },
-    ai: { '--shadow-color': '#059669', background: 'linear-gradient(135deg, #34d399, #10b981)' }
+    flashcard: { '--shadow-rgba': 'rgba(245, 158, 11, 0.3)', '--bg-grad': 'linear-gradient(135deg, #fbbf24, #f59e0b)' },
+    matching: { '--shadow-rgba': 'rgba(244, 63, 94, 0.3)', '--bg-grad': 'linear-gradient(135deg, #fb7185, #f43f5e)' },
+    context: { '--shadow-rgba': 'rgba(14, 165, 233, 0.3)', '--bg-grad': 'linear-gradient(135deg, #38bdf8, #0ea5e9)' },
+    emotion_training: { '--shadow-rgba': 'rgba(139, 92, 246, 0.3)', '--bg-grad': 'linear-gradient(135deg, #a78bfa, #8b5cf6)' },
+    ai: { '--shadow-rgba': 'rgba(16, 185, 129, 0.3)', '--bg-grad': 'linear-gradient(135deg, #34d399, #10b981)' }
   };
   return styles[type] || {};
 };

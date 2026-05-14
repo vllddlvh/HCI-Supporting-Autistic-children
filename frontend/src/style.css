@@ -62,7 +62,7 @@
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Quicksand', 'Be Vietnam Pro', sans-serif;
   background: radial-gradient(1200px 600px at 20% 10%, rgba(56, 189, 248, 0.14), transparent 60%),
               radial-gradient(900px 500px at 90% 20%, rgba(167, 139, 250, 0.12), transparent 55%),
               radial-gradient(1000px 700px at 40% 90%, rgba(52, 211, 153, 0.10), transparent 60%),
@@ -166,24 +166,33 @@ body {
 }
 
 .node-btn-premium {
-  @apply w-24 h-24 rounded-full flex flex-col items-center justify-center text-white transition-all duration-300 relative z-10;
-  box-shadow: 0 12px 0 var(--shadow-color), 0 20px 30px rgba(0,0,0,0.1);
+  @apply w-28 h-28 rounded-[2.5rem] flex flex-col items-center justify-center text-white transition-all duration-500 relative z-10;
+  background: var(--bg-grad);
+  box-shadow: 0 15px 35px var(--shadow-rgba), inset 0 -8px 0 rgba(0,0,0,0.1);
+  border: 2px solid rgba(255,255,255,0.3);
 }
 
 .node-btn-premium:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 0 var(--shadow-color), 0 25px 40px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 20px 45px var(--shadow-rgba);
+  border-color: rgba(255,255,255,0.6);
 }
 
 .node-btn-premium:active {
-  transform: translateY(8px) scale(0.95);
-  box-shadow: 0 4px 0 var(--shadow-color), 0 10px 15px rgba(0,0,0,0.1);
+  transform: translateY(4px) scale(0.96);
+  box-shadow: 0 5px 15px var(--shadow-rgba);
+}
+
+.node-btn-premium i {
+  @apply text-4xl mb-1 filter drop-shadow-lg transition-transform duration-500;
+}
+
+.node-btn-premium:hover i {
+  transform: scale(1.2) rotate(5deg);
 }
 
 .node-btn-premium.locked {
-  @apply bg-slate-200 text-slate-500 cursor-not-allowed;
-  --shadow-color: #CBD5E1;
-  box-shadow: 0 8px 0 #CBD5E1;
+  @apply bg-slate-200 text-slate-400 border-slate-100 shadow-none scale-95 opacity-60;
   transform: none !important;
 }
 

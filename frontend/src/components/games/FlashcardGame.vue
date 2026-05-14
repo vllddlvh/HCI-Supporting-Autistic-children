@@ -6,7 +6,7 @@
       <div :key="data.id" class="w-full flex flex-col items-center pt-4">
         
         <!-- Question Bubble -->
-        <div class="bg-white/90 backdrop-blur-sm px-5 md:px-8 py-3 md:py-4 rounded-[1.5rem] shadow-md mb-8 relative border-[3px] border-white transform -rotate-2 hover:rotate-0 transition-transform z-20">
+        <div class="bg-white/90 backdrop-blur-sm px-5 md:px-8 py-3 md:py-4 rounded-[1.5rem] shadow-md mb-4 md:mb-6 relative border-[3px] border-white transform -rotate-2 hover:rotate-0 transition-transform z-20">
            <h2 class="text-xl md:text-2xl font-black text-sky-600 text-center flex items-center justify-center gap-2">
              <span class="text-2xl animate-pulse">✨</span>
              {{ data.question }}
@@ -17,7 +17,7 @@
         </div>
 
         <!-- Image Container - Playful Shape -->
-        <div class="relative w-56 h-56 md:w-64 md:h-64 mb-6 group">
+        <div class="relative w-44 h-44 md:w-56 md:h-56 mb-4 md:mb-6 group">
           <div class="absolute inset-0 bg-gradient-to-tr from-amber-300 via-orange-400 to-rose-400 rounded-3xl rotate-6 group-hover:rotate-12 transition-transform duration-500 shadow-md"></div>
           <div class="absolute inset-0 bg-white rounded-3xl -rotate-3 group-hover:rotate-0 transition-transform duration-500 shadow-sm overflow-hidden border-[6px] border-white">
             <img v-if="data.image" :src="data.image" alt="Emotion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Options Grid -->
-        <div class="grid grid-cols-2 gap-3 md:gap-4 w-full px-2 max-w-lg">
+        <div class="grid grid-cols-2 gap-3 w-full px-2 max-w-lg">
           <button 
             v-for="(opt, index) in data.options" 
             :key="opt"
