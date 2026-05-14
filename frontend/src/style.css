@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Kid-friendly theme tokens (pastel, soft shadows)
+   ========================================================= */
+:root {
+  --kid-bg: #f8fafc;
+  --kid-surface: #ffffff;
+  --kid-ink: #0f172a;
+  --kid-muted: #64748b;
+
+  --kid-primary: #38bdf8; /* sky */
+  --kid-primary-deep: #0284c7;
+  --kid-success: #34d399; /* emerald */
+  --kid-amber: #fbbf24;
+  --kid-rose: #fb7185;
+  --kid-violet: #a78bfa;
+
+  --kid-ring: rgba(56, 189, 248, 0.35);
+  --kid-border: rgba(15, 23, 42, 0.06);
+
+  --kid-radius-xl: 20px;
+  --kid-radius-2xl: 28px;
+  --kid-radius-3xl: 40px;
+
+  --kid-shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --kid-shadow-lift: 0 14px 40px rgba(15, 23, 42, 0.12);
+  --kid-shadow-deep: 0 20px 50px rgba(15, 23, 42, 0.15);
+
+  /* Gradients */
+  --grad-sky: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+  --grad-ocean: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+  --grad-emerald: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  --grad-sunset: linear-gradient(135deg, #fbbf24 0%, #fb7185 100%);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes cloud-move {
+  from { transform: translateX(-100px); }
+  to { transform: translateX(100vw); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(0) rotate(0); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 1; }
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(56, 189, 248, 0.14), transparent 60%),
+              radial-gradient(900px 500px at 90% 20%, rgba(167, 139, 250, 0.12), transparent 55%),
+              radial-gradient(1000px 700px at 40% 90%, rgba(52, 211, 153, 0.10), transparent 60%),
+              var(--kid-bg);
+  color: var(--kid-ink);
+}
+
+@layer components {
+  .kid-card {
+    @apply bg-white border border-slate-100;
+    border-color: var(--kid-border);
+    border-radius: var(--kid-radius-2xl);
+    box-shadow: var(--kid-shadow-soft);
+  }
+
+  .kid-btn {
+    @apply inline-flex items-center justify-center font-extrabold transition select-none;
+    border-radius: 18px;
+    min-height: 48px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 0 rgba(15, 23, 42, 0.10);
+  }
+  .kid-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 6px 0 rgba(15, 23, 42, 0.10);
+  }
+  .kid-btn-primary {
+    background: linear-gradient(180deg, #7dd3fc 0%, var(--kid-primary) 55%, #0ea5e9 100%);
+    color: white;
+  }
+  .kid-btn-secondary {
+    @apply bg-white text-slate-700 border;
+    border-color: var(--kid-border);
+  }
+  .kid-surface {
+    @apply bg-white border border-slate-100;
+    border-color: var(--kid-border);
+    border-radius: var(--kid-radius-xl);
+    box-shadow: var(--kid-shadow-soft);
+  }
+  .kid-focus {
+    outline: none;
+    box-shadow: 0 0 0 6px var(--kid-ring), var(--kid-shadow-soft);
+  }
+}
+
+/* --- Nút chọn đáp án kiểu 3D (dùng cho game) --- */
+@layer components {
+  .kid-choice {
+    @apply w-full py-6 rounded-2xl text-xl font-extrabold flex flex-col items-center transition-all duration-300;
+    background: rgba(255, 255, 255, 0.90);
+    border: 2px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 0 rgba(15, 23, 42, 0.10);
+  }
+  .kid-choice-row {
+    @apply w-full py-5 px-6 rounded-2xl text-xl font-extrabold flex items-center justify-between transition-all duration-300;
+    background: rgba(255, 255, 255, 0.90);
+    border: 2px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 0 rgba(15, 23, 42, 0.10);
+  }
+  .kid-choice:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.45);
+    background: rgba(240, 249, 255, 0.85);
+  }
+  .kid-choice-row:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.45);
+    background: rgba(240, 249, 255, 0.85);
+  }
+  .kid-choice:active {
+    transform: translateY(4px);
+    box-shadow: 0 6px 0 rgba(15, 23, 42, 0.10);
+  }
+  .kid-choice-row:active {
+    transform: translateY(4px);
+    box-shadow: 0 6px 0 rgba(15, 23, 42, 0.10);
+  }
+  .kid-choice:disabled {
+    transform: none;
+  }
+  .kid-choice-row:disabled {
+    transform: none;
+  }
+}
+
+/* --- PREMIUM DASHBOARD UTILITIES --- */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--kid-shadow-soft);
+}
+
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.6;
+  animation: cloud-move var(--duration, 60s) linear infinite;
+  z-index: 1;
+}
+
+.node-btn-premium {
+  @apply w-24 h-24 rounded-full flex flex-col items-center justify-center text-white transition-all duration-300 relative z-10;
+  box-shadow: 0 12px 0 var(--shadow-color), 0 20px 30px rgba(0,0,0,0.1);
+}
+
+.node-btn-premium:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 0 var(--shadow-color), 0 25px 40px rgba(0,0,0,0.15);
+}
+
+.node-btn-premium:active {
+  transform: translateY(8px) scale(0.95);
+  box-shadow: 0 4px 0 var(--shadow-color), 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.node-btn-premium.locked {
+  @apply bg-slate-200 text-slate-500 cursor-not-allowed;
+  --shadow-color: #CBD5E1;
+  box-shadow: 0 8px 0 #CBD5E1;
+  transform: none !important;
+}
+
+.path-dash {
+  stroke-dasharray: 10, 15;
+  animation: dash-flow 20s linear infinite;
+}
+
+@keyframes dash-flow {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
