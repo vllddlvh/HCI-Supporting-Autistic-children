@@ -304,6 +304,7 @@ const starBump = ref(false);
 
 onMounted(() => {
     store.loadUserInfo();
+    store.fetchReportData(); // Fetch stars and streak
     store.fetchLevelsFromAPI().then(() => {
         setTimeout(() => {
             const currentEl = document.getElementById('current-lesson-node');

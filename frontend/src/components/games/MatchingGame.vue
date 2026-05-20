@@ -10,13 +10,13 @@
         </p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4 min-h-[300px]">
+    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 p-4 min-h-[300px]">
       
       <TransitionGroup name="list">
         <div 
             v-for="card in activeCards" 
             :key="card.uuid"
-            class="aspect-square relative cursor-pointer transition-all duration-300 rounded-3xl overflow-hidden border-4 shadow-[0_14px_30px_rgba(15,23,42,0.12)] bg-white/80"
+            class="w-[45%] md:w-48 aspect-square relative cursor-pointer transition-all duration-300 rounded-3xl overflow-hidden border-4 shadow-[0_14px_30px_rgba(15,23,42,0.12)] bg-white/80"
             :class="getCardClass(card)"
             @click="selectCard(card)"
         >
