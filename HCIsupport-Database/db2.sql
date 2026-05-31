@@ -190,34 +190,34 @@ SET @EMO_SO = (SELECT id FROM emotion WHERE name = 'Sợ hãi');
 
 -- Media Flashcard
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/flashcard/happy_1.jpg', @EMO_VUI),    -- ID 1 (FC-Vui 1)
-('IMAGE', 'https://example.com/images/flashcard/sad_1.jpg', @EMO_BUON),     -- ID 2 (FC-Buồn 1)
-('IMAGE', 'https://example.com/images/flashcard/happy_2.jpg', @EMO_VUI),    -- ID 3 (FC-Vui 2)
-('IMAGE', 'https://example.com/images/flashcard/sad_2.jpg', @EMO_BUON),     -- ID 4 (FC-Buồn 2)
-('IMAGE', 'https://example.com/images/flashcard/angry_1.jpg', @EMO_GIAN);   -- ID 5 (FC-Giận 1)
+('IMAGE', 'https://i.pinimg.com/736x/99/fa/dd/99faddfcde5fd62e7677e2f352e71822.jpg', @EMO_VUI),    -- ID 1 (FC-Vui 1)
+('IMAGE', 'https://i.pinimg.com/736x/0d/5c/93/0d5c9347e5b925009c9534863ed5dc05.jpg', @EMO_BUON),     -- ID 2 (FC-Buồn 1)
+('IMAGE', 'https://i.pinimg.com/1200x/3d/f3/f0/3df3f0fdfdd2d267878e691a84dd2e9f.jpg', @EMO_VUI),    -- ID 3 (FC-Vui 2)
+('IMAGE', 'https://i.pinimg.com/1200x/c9/f2/e8/c9f2e836ff590556ebebd37f3ebe13f6.jpg', @EMO_BUON),     -- ID 4 (FC-Buồn 2)
+('IMAGE', 'https://i.pinimg.com/1200x/09/84/54/098454c47d19eb68f422f0a954094960.jpg', @EMO_GIAN);   -- ID 5 (FC-Giận 1)
 
 -- Media Context
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/context/gift.jpg', @EMO_VUI),         -- ID 6 (CT-Quà)
-('IMAGE', 'https://example.com/images/context/ice_cream_fall.jpg', @EMO_BUON), -- ID 7 (CT-Kem)
-('IMAGE', 'https://example.com/images/context/broken_toy.jpg', @EMO_BUON);  -- ID 8 (CT-Đồ chơi hỏng)
+('IMAGE', 'https://i.pinimg.com/736x/cd/36/28/cd362822a9ad570b3adf4584208d76dd.jpg', @EMO_VUI),         -- ID 6 (CT-Quà)
+('IMAGE', 'https://i.pinimg.com/736x/4f/6d/19/4f6d199fc61f54f7a551cc785faa3a5d.jpg', @EMO_BUON), -- ID 7 (CT-Kem)
+('IMAGE', 'https://i.pinimg.com/1200x/00/47/6f/00476fa4d4e24f5a2fcea90282b1d8fa.jpg', @EMO_BUON);  -- ID 8 (CT-Đồ chơi hỏng)
 
 -- Media Matching (5 cặp = 10 thẻ)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/matching/vui_1_face.jpg', @EMO_VUI),    -- ID 9
-('IMAGE', 'https://example.com/images/matching/vui_1_text.jpg', @EMO_VUI),    -- ID 10
-('IMAGE', 'https://example.com/images/matching/buon_1_face.jpg', @EMO_BUON),  -- ID 11
-('IMAGE', 'https://example.com/images/matching/buon_1_text.jpg', @EMO_BUON),  -- ID 12
-('IMAGE', 'https://example.com/images/matching/vui_2_face.jpg', @EMO_VUI),    -- ID 13
-('IMAGE', 'https://example.com/images/matching/vui_2_text.jpg', @EMO_VUI),    -- ID 14
-('IMAGE', 'https://example.com/images/matching/buon_2_face.jpg', @EMO_BUON),  -- ID 15
-('IMAGE', 'https://example.com/images/matching/buon_2_text.jpg', @EMO_BUON),  -- ID 16
-('IMAGE', 'https://example.com/images/matching/gian_1_face.jpg', @EMO_GIAN),  -- ID 17
-('IMAGE', 'https://example.com/images/matching/gian_1_text.jpg', @EMO_GIAN);  -- ID 18
+('IMAGE', 'https://i.pinimg.com/736x/ef/fa/64/effa643f68cbef964c3adb793678f08b.jpg', @EMO_VUI),    -- ID 9
+('IMAGE', 'https://i.pinimg.com/1200x/9a/c2/32/9ac2326031c943effa8b68e9f9ac661b.jpg', @EMO_VUI),    -- ID 10
+('IMAGE', 'https://i.pinimg.com/1200x/c9/f2/e8/c9f2e836ff590556ebebd37f3ebe13f6.jpg', @EMO_BUON),  -- ID 11
+('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 12
+('IMAGE', 'https://i.pinimg.com/736x/c5/e2/23/c5e223e046250b6e012933249c1d9335.jpg', @EMO_VUI),    -- ID 13
+('IMAGE', 'https://i.pinimg.com/1200x/3d/f3/f0/3df3f0fdfdd2d267878e691a84dd2e9f.jpg', @EMO_VUI),    -- ID 14
+('IMAGE', 'https://i.pinimg.com/1200x/1a/2c/82/1a2c8254a3b35fc81c188605fc9652e9.jpg', @EMO_BUON),  -- ID 15
+('IMAGE', 'https://i.pinimg.com/1200x/b2/ee/69/b2ee69ecf54b869c84412d44f3c90757.jpg', @EMO_BUON),  -- ID 16
+('IMAGE', 'https://i.pinimg.com/1200x/c1/c2/57/c1c25793cd42d293555b3c076f4e0741.jpg', @EMO_GIAN),  -- ID 17
+('IMAGE', 'https://i.pinimg.com/1200x/dd/62/8d/dd628d8b190f92b1eb28eb52dddbf8bb.jpg', @EMO_GIAN);  -- ID 18
 
 -- Media Training (Hướng dẫn)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/training/guide_vui.jpg', @EMO_VUI);    -- ID 19
+('IMAGE', 'https://nhakhoaparkway.com/wp-content/uploads/2024/01/luyen-tap-de-co-nu-cuoi-dep-2.jpg', @EMO_VUI);    -- ID 19
 
 -- ========================================================
 -- II. NỘI DUNG THỬ THÁCH (CONTENT)
@@ -318,7 +318,7 @@ INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion
 
 -- --- 5. AI (1 Bài) ---
 INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion_id, instruction, video_url, success_message, tips) VALUES
-(@AI_TYPE, @LEVEL_1, @EMO_VUI, 'Quan sát video và bắt chước biểu cảm Vui vẻ. AI sẽ chấm điểm!', 'https://www.youtube.com/embed/example-happy-face-video', 'AI nói con đã biểu lộ Vui vẻ rất thành công!', 'Hãy thử giữ biểu cảm lâu hơn một chút nhé.');
+(@AI_TYPE, @LEVEL_1, @EMO_VUI, 'Quan sát video và bắt chước biểu cảm Vui vẻ. AI sẽ chấm điểm!', 'https://www.youtube.com/shorts/LGobh6OL_zc', 'AI nói con đã biểu lộ Vui vẻ rất thành công!', 'Hãy thử giữ biểu cảm lâu hơn một chút nhé.');
 
 SELECT 'Dữ liệu mẫu đã được thêm thành công!' AS Status;
 
@@ -357,10 +357,10 @@ SET @EMO_GHE = (SELECT id FROM emotion WHERE name = 'Ghê tởm');
 -- A. Thêm Media Asset cho Cấp độ 2
 -- Flashcard (ID sẽ tự tăng tiếp theo, ví dụ từ 20)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/flashcard/angry_2.jpg', @EMO_GIAN),   -- FC-Giận 2
-('IMAGE', 'https://example.com/images/flashcard/fear_1.jpg', @EMO_SO),     -- FC-Sợ 1
-('IMAGE', 'https://example.com/images/flashcard/angry_3.jpg', @EMO_GIAN),   -- FC-Giận 3
-('IMAGE', 'https://example.com/images/flashcard/fear_2.jpg', @EMO_SO);     -- FC-Sợ 2
+('IMAGE', 'https://i.pinimg.com/736x/34/dd/ce/34ddce14c2f02c553b30bfb7e2fc7b95.jpg', @EMO_GIAN),   -- FC-Giận 2
+('IMAGE', 'https://i.pinimg.com/736x/16/d9/44/16d944f90616bd430861f2d32fdd461b.jpg', @EMO_SO),     -- FC-Sợ 1
+('IMAGE', 'https://i.pinimg.com/736x/4c/93/41/4c93414d80d0e730fe8e60f826348a95.jpg', @EMO_GIAN),   -- FC-Giận 3
+('IMAGE', 'https://i.pinimg.com/736x/4e/a0/4b/4ea04b9f81ec458457b803f16372a72c.jpg', @EMO_SO);     -- FC-Sợ 2
 
 -- Lấy ID của các ảnh vừa thêm để dùng bên dưới (Giả sử ID bắt đầu từ 20 sau khi Level 1 đã dùng 19 ID)
 -- Lưu ý: Nếu database bạn đã chạy nhiều lần, ID có thể khác.
@@ -372,9 +372,9 @@ SET @IMG_FC_GIAN_2 = @IMG_FC_SO_2 - 3;     -- ID 20
 
 -- Context Media
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/context/thunder.jpg', @EMO_SO),       -- CT-Sấm sét
-('IMAGE', 'https://example.com/images/context/broken_vase.jpg', @EMO_GIAN), -- CT-Vỡ bình
-('IMAGE', 'https://example.com/images/context/dark_room.jpg', @EMO_SO);     -- CT-Phòng tối
+('IMAGE', 'https://i.pinimg.com/736x/f8/15/ec/f815ec695d02b5c2a01df309d73b4764.jpg', @EMO_SO),       -- CT-Sấm sét
+('IMAGE', 'https://i.pinimg.com/1200x/61/8c/0c/618c0c9448692570fa554542ea41fcd3.jpg', @EMO_GIAN), -- CT-Vỡ bình
+('IMAGE', 'https://i.pinimg.com/1200x/d2/21/32/d22132fbe65b8b54c89d09c300fc6ca3.jpg', @EMO_SO);     -- CT-Phòng tối
 
 SET @IMG_CT_DARK = LAST_INSERT_ID();      -- ID 26
 SET @IMG_CT_VASE = @IMG_CT_DARK - 1;      -- ID 25
@@ -382,21 +382,21 @@ SET @IMG_CT_THUNDER = @IMG_CT_DARK - 2;   -- ID 24
 
 -- Matching Media (8 thẻ)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/matching/gian_2_face.jpg', @EMO_GIAN),
-('IMAGE', 'https://example.com/images/matching/gian_2_text.jpg', @EMO_GIAN),
-('IMAGE', 'https://example.com/images/matching/so_1_face.jpg', @EMO_SO),
-('IMAGE', 'https://example.com/images/matching/so_1_text.jpg', @EMO_SO),
-('IMAGE', 'https://example.com/images/matching/gian_3_face.jpg', @EMO_GIAN),
-('IMAGE', 'https://example.com/images/matching/gian_3_text.jpg', @EMO_GIAN),
-('IMAGE', 'https://example.com/images/matching/so_2_face.jpg', @EMO_SO),
-('IMAGE', 'https://example.com/images/matching/so_2_text.jpg', @EMO_SO);
+('IMAGE', 'https://i.pinimg.com/736x/d0/db/91/d0db9169d516dc040fc4e8fe170b17cd.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/1200x/ef/9e/14/ef9e14a225145fe8edfa4580a12e1a63.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/736x/a0/49/90/a0499015fc448634837685b68331f957.jpg', @EMO_SO),
+('IMAGE', 'https://i.pinimg.com/736x/a0/49/90/a0499015fc448634837685b68331f957.jpg', @EMO_SO),
+('IMAGE', 'https://i.pinimg.com/736x/c8/88/aa/c888aa62a75de46d37b45180036e64b2.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/1200x/52/a3/d0/52a3d0a42089e79d6dae5bb6925cc3c2.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/1200x/46/53/f4/4653f4f9743f7e424b2d4ddf899eb1bb.jpg', @EMO_SO),
+('IMAGE', 'https://i.pinimg.com/736x/f2/7d/0d/f27d0d983b1d811c045d04b14320ef84.jpg', @EMO_SO);
 
 SET @IMG_MC_SO_2_TXT = LAST_INSERT_ID(); -- ID 34
 -- Các ID trước đó lần lượt là 33, 32, ... 27
 
 -- Training Media
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/training/guide_gian.jpg', @EMO_GIAN);
+('IMAGE', 'https://i.pinimg.com/736x/34/dd/ce/34ddce14c2f02c553b30bfb7e2fc7b95.jpg', @EMO_GIAN);
 SET @IMG_TR_GIAN = LAST_INSERT_ID(); -- ID 35
 
 
@@ -491,7 +491,7 @@ INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion
 (@TRAINING_TYPE, @LEVEL_2, @EMO_GIAN, 'Thử cau mày và mím môi để thể hiện sự Tức giận nào!', @IMG_TR_GIAN, 'Đúng rồi, trông con rất uy quyền!', 'Hãy thử nhíu lông mày lại gần nhau hơn nhé.');
 
 INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion_id, instruction, video_url, success_message, tips) VALUES
-(@AI_TYPE, @LEVEL_2, @EMO_SO, 'Hãy làm khuôn mặt Sợ hãi giống trong video nhé!', 'https://www.youtube.com/embed/example-fear-face-video', 'Tuyệt vời, AI đã nhận ra sự Sợ hãi!', 'Mở to mắt và miệng ra thêm chút nữa nào.');
+(@AI_TYPE, @LEVEL_2, @EMO_SO, 'Hãy làm khuôn mặt Sợ hãi giống trong video nhé!', 'https://www.youtube.com/watch?v=xdGj0iz0w7g', 'Tuyệt vời, AI đã nhận ra sự Sợ hãi!', 'Mở to mắt và miệng ra thêm chút nữa nào.');
 
 
 -- ========================================================
@@ -501,10 +501,10 @@ INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion
 -- A. Thêm Media Asset cho Cấp độ 3
 -- Flashcard
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/flashcard/surprise_1.jpg', @EMO_NGAC),   -- FC-Ngạc 1
-('IMAGE', 'https://example.com/images/flashcard/disgust_1.jpg', @EMO_GHE),     -- FC-Ghê 1
-('IMAGE', 'https://example.com/images/flashcard/surprise_2.jpg', @EMO_NGAC),   -- FC-Ngạc 2
-('IMAGE', 'https://example.com/images/flashcard/disgust_2.jpg', @EMO_GHE);     -- FC-Ghê 2
+('IMAGE', 'https://i.pinimg.com/736x/f3/e8/c6/f3e8c6a19dca8e6e929aa7ae98270c29.jpg', @EMO_NGAC),   -- FC-Ngạc 1
+('IMAGE', 'https://i.pinimg.com/736x/4d/e2/2d/4de22de5a458fde892cdab5d52dbe41a.jpg', @EMO_GHE),     -- FC-Ghê 1
+('IMAGE', 'https://i.pinimg.com/736x/37/61/55/376155fd9cf2eb171bacd60d6aebf0f3.jpg', @EMO_NGAC),   -- FC-Ngạc 2
+('IMAGE', 'https://i.pinimg.com/1200x/91/0b/65/910b654ea2acacc2e700bf8a207830a5.jpg', @EMO_GHE);     -- FC-Ghê 2
 
 SET @IMG_FC_GHE_2 = LAST_INSERT_ID();      -- ID 39
 SET @IMG_FC_NGAC_2 = @IMG_FC_GHE_2 - 1;    -- ID 38
@@ -513,9 +513,9 @@ SET @IMG_FC_NGAC_1 = @IMG_FC_GHE_2 - 3;    -- ID 36
 
 -- Context
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/context/surprise_party.jpg', @EMO_NGAC), -- CT-Tiệc
-('IMAGE', 'https://example.com/images/context/bad_food.jpg', @EMO_GHE),        -- CT-Đồ ăn hỏng
-('IMAGE', 'https://example.com/images/context/gift_box.jpg', @EMO_NGAC);       -- CT-Hộp quà
+('IMAGE', 'https://i.pinimg.com/736x/bb/21/c6/bb21c6e65a5b667f0840a2961c72b735.jpg', @EMO_NGAC), -- CT-Tiệc
+('IMAGE', 'https://i.pinimg.com/736x/37/26/f8/3726f8ef7b7e7bd2487a67bbe05e57f1.jpg', @EMO_GHE),        -- CT-Đồ ăn hỏng
+('IMAGE', 'https://i.pinimg.com/1200x/1f/e7/a9/1fe7a91c9bf74500a14e42438af47590.jpg', @EMO_NGAC);       -- CT-Hộp quà
 
 SET @IMG_CT_GIFT = LAST_INSERT_ID();      -- ID 42
 SET @IMG_CT_FOOD = @IMG_CT_GIFT - 1;      -- ID 41
@@ -523,21 +523,21 @@ SET @IMG_CT_PARTY = @IMG_CT_GIFT - 2;     -- ID 40
 
 -- Matching (8 thẻ)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/matching/ngac_1_face.jpg', @EMO_NGAC),
-('IMAGE', 'https://example.com/images/matching/ngac_1_text.jpg', @EMO_NGAC),
-('IMAGE', 'https://example.com/images/matching/ghe_1_face.jpg', @EMO_GHE),
-('IMAGE', 'https://example.com/images/matching/ghe_1_text.jpg', @EMO_GHE),
-('IMAGE', 'https://example.com/images/matching/ngac_2_face.jpg', @EMO_NGAC),
-('IMAGE', 'https://example.com/images/matching/ngac_2_text.jpg', @EMO_NGAC),
-('IMAGE', 'https://example.com/images/matching/ghe_2_face.jpg', @EMO_GHE),
-('IMAGE', 'https://example.com/images/matching/ghe_2_text.jpg', @EMO_GHE);
+('IMAGE', 'https://i.pinimg.com/736x/e6/69/86/e669869566af07545e86da2c79136825.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/1200x/1c/08/cf/1c08cf3d1c0b45e181e9e956a362a92a.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/736x/a5/f9/78/a5f978e34eb5a6e8e5a38215c33f5f38.jpg', @EMO_GHE),
+('IMAGE', 'https://i.pinimg.com/736x/a5/f9/78/a5f978e34eb5a6e8e5a38215c33f5f38.jpg', @EMO_GHE),
+('IMAGE', 'https://i.pinimg.com/736x/08/27/b5/0827b5f93542f77e8fbd89bd9283685d.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/1200x/c3/0b/bb/c30bbb65143a29158a28d48c0b42c7c4.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/736x/71/e8/57/71e85746696c92918e21a0df32e28680.jpg', @EMO_GHE),
+('IMAGE', 'https://i.pinimg.com/736x/71/e8/57/71e85746696c92918e21a0df32e28680.jpg', @EMO_GHE);
 
 SET @IMG_MC_GHE_2_TXT = LAST_INSERT_ID(); -- ID 50
 -- Các ID trước đó: 49, 48... 43
 
 -- Training Media
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://example.com/images/training/guide_ngac.jpg', @EMO_NGAC);
+('IMAGE', 'https://i.pinimg.com/1200x/5e/3b/f2/5e3bf2778a1e94538db5a0b8f12da60c.jpg', @EMO_NGAC);
 SET @IMG_TR_NGAC = LAST_INSERT_ID(); -- ID 51
 
 
