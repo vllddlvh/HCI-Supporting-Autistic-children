@@ -210,10 +210,10 @@ INSERT INTO media_asset (type, url, emotion_id) VALUES
 ('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 12
 ('IMAGE', 'https://i.pinimg.com/736x/c5/e2/23/c5e223e046250b6e012933249c1d9335.jpg', @EMO_VUI),    -- ID 13
 ('IMAGE', 'https://i.pinimg.com/1200x/3d/f3/f0/3df3f0fdfdd2d267878e691a84dd2e9f.jpg', @EMO_VUI),    -- ID 14
-('IMAGE', 'https://i.pinimg.com/1200x/1a/2c/82/1a2c8254a3b35fc81c188605fc9652e9.jpg', @EMO_BUON),  -- ID 15
-('IMAGE', 'https://i.pinimg.com/1200x/b2/ee/69/b2ee69ecf54b869c84412d44f3c90757.jpg', @EMO_BUON),  -- ID 16
-('IMAGE', 'https://i.pinimg.com/1200x/c1/c2/57/c1c25793cd42d293555b3c076f4e0741.jpg', @EMO_GIAN),  -- ID 17
-('IMAGE', 'https://i.pinimg.com/1200x/dd/62/8d/dd628d8b190f92b1eb28eb52dddbf8bb.jpg', @EMO_GIAN);  -- ID 18
+('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 15
+('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 16
+('IMAGE', 'https://i.pinimg.com/736x/cd/32/e7/cd32e73cc8eaa8d9ba8eba03182832d4.jpg', @EMO_GIAN),  -- ID 17
+('IMAGE', 'https://i.pinimg.com/736x/54/61/61/54616108d059cf0593ae8ebb7d349dbe.jpg', @EMO_GIAN);  -- ID 18
 
 -- Media Training (Hướng dẫn)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
@@ -382,14 +382,14 @@ SET @IMG_CT_THUNDER = @IMG_CT_DARK - 2;   -- ID 24
 
 -- Matching Media (8 thẻ)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://i.pinimg.com/736x/d0/db/91/d0db9169d516dc040fc4e8fe170b17cd.jpg', @EMO_GIAN),
-('IMAGE', 'https://i.pinimg.com/1200x/ef/9e/14/ef9e14a225145fe8edfa4580a12e1a63.jpg', @EMO_GIAN),
-('IMAGE', 'https://i.pinimg.com/736x/a0/49/90/a0499015fc448634837685b68331f957.jpg', @EMO_SO),
-('IMAGE', 'https://i.pinimg.com/736x/a0/49/90/a0499015fc448634837685b68331f957.jpg', @EMO_SO),
-('IMAGE', 'https://i.pinimg.com/736x/c8/88/aa/c888aa62a75de46d37b45180036e64b2.jpg', @EMO_GIAN),
-('IMAGE', 'https://i.pinimg.com/1200x/52/a3/d0/52a3d0a42089e79d6dae5bb6925cc3c2.jpg', @EMO_GIAN),
-('IMAGE', 'https://i.pinimg.com/1200x/46/53/f4/4653f4f9743f7e424b2d4ddf899eb1bb.jpg', @EMO_SO),
-('IMAGE', 'https://i.pinimg.com/736x/f2/7d/0d/f27d0d983b1d811c045d04b14320ef84.jpg', @EMO_SO);
+('IMAGE', 'https://i.pinimg.com/736x/34/dd/ce/34ddce14c2f02c553b30bfb7e2fc7b95.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/736x/4c/93/41/4c93414d80d0e730fe8e60f826348a95.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/736x/16/d9/44/16d944f90616bd430861f2d32fdd461b.jpg', @EMO_SO),
+('IMAGE', 'https://i.pinimg.com/736x/4e/a0/4b/4ea04b9f81ec458457b803f16372a72c.jpg', @EMO_SO),
+('IMAGE', 'https://i.pinimg.com/736x/34/dd/ce/34ddce14c2f02c553b30bfb7e2fc7b95.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/736x/54/61/61/54616108d059cf0593ae8ebb7d349dbe.jpg', @EMO_GIAN),
+('IMAGE', 'https://i.pinimg.com/736x/0c/9b/aa/0c9baadca3acf4fbb97bc5e7b598a265.jpg', @EMO_SO),
+('IMAGE', 'https://i.pinimg.com/736x/8c/bc/ea/8cbcea14598c29ff3f45fa631707f819.jpg', @EMO_SO);
 
 SET @IMG_MC_SO_2_TXT = LAST_INSERT_ID(); -- ID 34
 -- Các ID trước đó lần lượt là 33, 32, ... 27
@@ -523,21 +523,21 @@ SET @IMG_CT_PARTY = @IMG_CT_GIFT - 2;     -- ID 40
 
 -- Matching (8 thẻ)
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://i.pinimg.com/736x/e6/69/86/e669869566af07545e86da2c79136825.jpg', @EMO_NGAC),
-('IMAGE', 'https://i.pinimg.com/1200x/1c/08/cf/1c08cf3d1c0b45e181e9e956a362a92a.jpg', @EMO_NGAC),
-('IMAGE', 'https://i.pinimg.com/736x/a5/f9/78/a5f978e34eb5a6e8e5a38215c33f5f38.jpg', @EMO_GHE),
-('IMAGE', 'https://i.pinimg.com/736x/a5/f9/78/a5f978e34eb5a6e8e5a38215c33f5f38.jpg', @EMO_GHE),
-('IMAGE', 'https://i.pinimg.com/736x/08/27/b5/0827b5f93542f77e8fbd89bd9283685d.jpg', @EMO_NGAC),
-('IMAGE', 'https://i.pinimg.com/1200x/c3/0b/bb/c30bbb65143a29158a28d48c0b42c7c4.jpg', @EMO_NGAC),
-('IMAGE', 'https://i.pinimg.com/736x/71/e8/57/71e85746696c92918e21a0df32e28680.jpg', @EMO_GHE),
-('IMAGE', 'https://i.pinimg.com/736x/71/e8/57/71e85746696c92918e21a0df32e28680.jpg', @EMO_GHE);
+('IMAGE', 'https://i.pinimg.com/736x/f3/e8/c6/f3e8c6a19dca8e6e929aa7ae98270c29.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/736x/37/61/55/376155fd9cf2eb171bacd60d6aebf0f3.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/736x/4d/e2/2d/4de22de5a458fde892cdab5d52dbe41a.jpg', @EMO_GHE),
+('IMAGE', 'https://i.pinimg.com/1200x/91/0b/65/910b654ea2acacc2e700bf8a207830a5.jpg', @EMO_GHE),
+('IMAGE', 'https://i.pinimg.com/736x/1e/46/bb/1e46bb04b3a63266bbf91e6f12d4bdc4.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/1200x/55/0b/50/550b50c4a326412acfe1e28822d4079c.jpg', @EMO_NGAC),
+('IMAGE', 'https://i.pinimg.com/1200x/91/0b/65/910b654ea2acacc2e700bf8a207830a5.jpg', @EMO_GHE),
+('IMAGE', 'https://i.pinimg.com/736x/4d/e2/2d/4de22de5a458fde892cdab5d52dbe41a.jpg', @EMO_GHE);
 
 SET @IMG_MC_GHE_2_TXT = LAST_INSERT_ID(); -- ID 50
 -- Các ID trước đó: 49, 48... 43
 
 -- Training Media
 INSERT INTO media_asset (type, url, emotion_id) VALUES
-('IMAGE', 'https://i.pinimg.com/1200x/5e/3b/f2/5e3bf2778a1e94538db5a0b8f12da60c.jpg', @EMO_NGAC);
+('IMAGE', 'https://i.pinimg.com/736x/f3/e8/c6/f3e8c6a19dca8e6e929aa7ae98270c29.jpg', @EMO_NGAC);
 SET @IMG_TR_NGAC = LAST_INSERT_ID(); -- ID 51
 
 
