@@ -29,7 +29,7 @@
       
       <!-- Mobile Top Bar -->
       <div class="md:hidden sticky top-0 z-[60] px-6 py-4 flex justify-between items-center bg-white/60 backdrop-blur-2xl border-b border-white/40">
-        <span class="font-black text-slate-800 text-xl tracking-tight">Empathy<span class="text-sky-500">Kids</span></span>
+        <span class="font-black text-slate-800 text-xl tracking-tight">Trạm <span class="text-sky-500">cảm xúc</span></span>
         <div class="flex gap-3">
           <div class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-100/50 rounded-full border border-orange-200">
             <i class="fas fa-fire text-orange-500 text-sm"></i>

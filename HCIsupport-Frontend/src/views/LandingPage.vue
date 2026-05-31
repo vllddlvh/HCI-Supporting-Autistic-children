@@ -61,10 +61,10 @@ const features = [
         <div class="flex items-center gap-3 cursor-pointer group" @click="router.push('/')">
           <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg transition-transform group-hover:scale-110 group-hover:rotate-3"
             style="background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);">
-            E
+            T
           </div>
           <div class="flex flex-col -space-y-1">
-            <span class="text-xl font-black text-slate-800 tracking-tight">Empathy<span class="text-sky-500">Kids</span></span>
+            <span class="text-xl font-black text-slate-800 tracking-tight">Trạm <span class="text-sky-500">cảm xúc</span></span>
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Nâng cánh ước mơ</span>
           </div>
         </div>
@@ -231,7 +231,7 @@ const features = [
                   <div class="w-3 h-3 rounded-full bg-amber-400"></div>
                   <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
                 </div>
-                <div class="text-xs font-black text-slate-400 uppercase tracking-widest">EmpathyKids Dashboard</div>
+                <div class="text-xs font-black text-slate-400 uppercase tracking-widest">Trạm cảm xúc Dashboard</div>
               </div>
             </div>
           </div>
@@ -274,9 +274,9 @@ const features = [
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md"
                 style="background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);">
-                E
+                T
               </div>
-              <span class="text-2xl font-black text-slate-800">Empathy<span class="text-sky-500">Kids</span></span>
+              <span class="text-2xl font-black text-slate-800">Trạm <span class="text-sky-500">cảm xúc</span></span>
             </div>
             <p class="text-slate-500 font-medium max-w-sm leading-relaxed">
               Dẫn đầu xu hướng giáo dục cảm xúc ứng dụng công nghệ cho trẻ tự kỷ tại Việt Nam.
@@ -310,7 +310,7 @@ const features = [
         </div>
         
         <div class="pt-10 border-t border-slate-50 flex flex-col md:row justify-between items-center gap-4">
-          <p class="text-slate-400 font-bold text-xs">© 2024 EmpathyKids. Made with ❤️ for very special souls.</p>
+          <p class="text-slate-400 font-bold text-xs">© 2024 Trạm cảm xúc. Made with ❤️ for very special souls.</p>
           <div class="flex items-center gap-2 text-[10px] font-black text-slate-300 uppercase tracking-widest">
             <span>Việt Nam</span>
             <span class="w-1 h-1 bg-slate-200 rounded-full"></span>

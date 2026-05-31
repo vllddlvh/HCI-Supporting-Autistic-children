@@ -8,7 +8,7 @@
                 <i class="fas fa-brain"></i>
             </div>
             <div class="flex flex-col -space-y-1">
-                <span class="text-2xl font-black text-slate-800 tracking-tight">Empathy<span class="text-sky-500">Kids</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tight">Trạm <span class="text-sky-500">cảm xúc</span></span>
                 <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Học mà chơi</span>
             </div>
         </div>
