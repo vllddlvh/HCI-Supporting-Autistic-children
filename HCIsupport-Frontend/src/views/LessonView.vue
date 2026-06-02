@@ -1,21 +1,46 @@
 <template>
-  <div class="h-screen flex flex-col bg-slate-50 text-slate-700 overflow-hidden font-quicksand relative">
+  <div class="h-screen flex flex-col bg-gradient-to-br from-emerald-50/40 via-amber-50/20 to-sky-50/30 text-slate-700 overflow-hidden font-quicksand relative">
 
-    <header class="px-6 py-6 flex items-center gap-6 max-w-5xl mx-auto w-full z-50">
+    <!-- Glowing aesthetic mesh background blobs -->
+    <div class="absolute top-20 left-[-10%] w-[45%] h-[45%] rounded-full bg-emerald-100/25 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-10 right-[-10%] w-[45%] h-[45%] rounded-full bg-amber-100/30 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[55%] rounded-full bg-sky-100/20 blur-[130px] pointer-events-none -z-10"></div>
+
+    <!-- Cozy Floating cartoon decorations for active kids landscape -->
+    <div class="absolute top-32 left-[5%] text-4xl opacity-30 select-none pointer-events-none animate-float-slow">🍃</div>
+    <div class="absolute bottom-24 left-[6%] text-4xl opacity-25 select-none pointer-events-none animate-float-mid">🌱</div>
+    <div class="absolute top-24 right-[5%] text-4xl opacity-30 select-none pointer-events-none animate-float-slow-2">☁️</div>
+    <div class="absolute bottom-32 right-[7%] text-4xl opacity-25 select-none pointer-events-none animate-float-fast">🌸</div>
+    <div class="absolute top-[45%] left-[3%] text-4xl opacity-20 select-none pointer-events-none animate-float-mid">🧸</div>
+    <div class="absolute top-[50%] right-[3%] text-4xl opacity-20 select-none pointer-events-none animate-float-slow">🌈</div>
+
+    <header class="px-6 py-4 flex items-center gap-5 max-w-5xl mx-auto w-full z-50 select-none">
+      <!-- Close button -->
       <button @click="goBack"
-        class="text-slate-400 hover:text-slate-600 text-2xl transition p-2 rounded-full hover:bg-slate-100">
+        class="text-slate-400 hover:text-slate-600 text-2xl transition p-2 rounded-full hover:bg-white/60 hover:shadow-sm shrink-0">
         <i class="fas fa-times"></i>
       </button>
 
-      <div class="flex-1 bg-slate-200 h-5 rounded-full overflow-hidden relative shadow-inner">
-        <div class="bg-emerald-400 h-full transition-all duration-500 ease-out relative"
+      <!-- Brand Logo & Text -->
+      <div class="flex items-center gap-2.5 shrink-0 cursor-pointer group" @click="goBack">
+        <img src="../assets/logo.png" class="w-10 h-10 rounded-xl bg-white object-cover border border-amber-100 shadow-sm group-hover:rotate-6 transition duration-300" alt="Logo" />
+        <span class="text-xl font-black tracking-normal hidden md:inline-block drop-shadow-[0_2px_4px_rgba(16,185,129,0.12)]">
+            <span class="text-emerald-600">Trạm</span>
+            <span class="text-[#007A5A] ml-0.5">Cảm Xúc</span>
+        </span>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="flex-1 bg-slate-200/60 h-5 rounded-full overflow-hidden relative shadow-inner border border-slate-100/40">
+        <div class="bg-gradient-to-r from-emerald-400 to-emerald-450 h-full transition-all duration-500 ease-out relative"
           :style="{ width: progress + '%' }">
           <div class="absolute top-1 left-0 w-full h-1 bg-white/30 rounded-full"></div>
         </div>
       </div>
 
+      <!-- Question Counter -->
       <div v-if="lessonType !== 'matching' && questions.length > 0"
-        class="font-bold text-slate-400 text-sm bg-white px-3 py-1 rounded-lg shadow-sm border border-slate-100">
+        class="font-black text-slate-500 text-xs bg-white px-3.5 py-1.5 rounded-2xl shadow-sm border border-amber-100/50 shrink-0">
         {{ Math.min(currentIndex + 1, questions.length) }} / {{ questions.length }}
       </div>
     </header>
@@ -255,5 +280,34 @@ const finishLesson = async (duration = null) => {
 
 .animate-bounce-in {
   animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Soft Floating Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(8deg); }
+}
+
+@keyframes floatMid {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-6deg); }
+}
+
+@keyframes floatFast {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(4deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.animate-float-slow-2 {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+.animate-float-mid {
+  animation: floatMid 5s ease-in-out infinite;
+}
+.animate-float-fast {
+  animation: floatFast 4s ease-in-out infinite;
 }
 </style>
