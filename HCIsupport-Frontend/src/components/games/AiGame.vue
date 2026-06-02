@@ -95,7 +95,7 @@
             >
               <div class="flex items-center gap-2">
                 <span class="text-xl">😄</span>
-                <span class="text-xs font-black text-slate-700">Vui vẻ (>= 90%)</span>
+                <span class="text-xs font-black text-slate-700">Vui vẻ (>= 80%)</span>
               </div>
               <div class="flex items-center gap-1.5">
                 <span class="text-[9px] font-bold text-slate-400" v-if="!checkedEmotions.happy">Hiện tại: {{ emotionStats.happy }}%</span>
@@ -111,7 +111,7 @@
             >
               <div class="flex items-center gap-2">
                 <span class="text-xl">😢</span>
-                <span class="text-xs font-black text-slate-700">Buồn bã (>= 90%)</span>
+                <span class="text-xs font-black text-slate-700">Buồn bã (>= 80%)</span>
               </div>
               <div class="flex items-center gap-1.5">
                 <span class="text-[9px] font-bold text-slate-400" v-if="!checkedEmotions.sad">Hiện tại: {{ emotionStats.sad }}%</span>
@@ -127,7 +127,7 @@
             >
               <div class="flex items-center gap-2">
                 <span class="text-xl">😡</span>
-                <span class="text-xs font-black text-slate-700">Giận dữ (>= 90%)</span>
+                <span class="text-xs font-black text-slate-700">Giận dữ (>= 80%)</span>
               </div>
               <div class="flex items-center gap-1.5">
                 <span class="text-[9px] font-bold text-slate-400" v-if="!checkedEmotions.angry">Hiện tại: {{ emotionStats.angry }}%</span>
@@ -337,14 +337,14 @@ const analyzeFrame = async () => {
         isConnected.value = true;
         emotionStats.value = response.data.emotions;
 
-        // CHECKLIST MATCH LOGIC (Each emotion hits >= 90%)
-        if (emotionStats.value.happy >= 90) {
+        // CHECKLIST MATCH LOGIC (Each emotion hits >= 80%)
+        if (emotionStats.value.happy >= 80) {
           checkedEmotions.value.happy = true;
         }
-        if (emotionStats.value.sad >= 90) {
+        if (emotionStats.value.sad >= 80) {
           checkedEmotions.value.sad = true;
         }
-        if (emotionStats.value.angry >= 90) {
+        if (emotionStats.value.angry >= 80) {
           checkedEmotions.value.angry = true;
         }
 
