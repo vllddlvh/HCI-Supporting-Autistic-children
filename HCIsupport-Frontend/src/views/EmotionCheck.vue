@@ -127,7 +127,7 @@ const analyzeFrame = async () => {
   canvas.height = video.videoHeight;
   canvas.getContext('2d').drawImage(video, 0, 0);
   try {
-    const res = await axios.post('http://localhost:5000/analyze', {
+    const res = await axios.post('http://localhost:5001/analyze', {
       image: canvas.toDataURL('image/jpeg', 0.6),
     });
     if (res.data.status === 'success') {
