@@ -92,6 +92,24 @@ export const logActivity = async (req, res) => {
     }
 };
 
+export const resetProgress = async (req, res) => {
+    const conn = await db.getConnection();
+    try {
+        const userId = req.user.id;
+        await conn.beginTransaction();
+        await conn.query('DELETE FROM user_progress_stat WHERE user_id = ?', [userId]);
+        await conn.query('DELETE FROM user_activity_log WHERE user_id = ?', [userId]);
+        await conn.commit();
+        res.status(200).json({ message: 'Đã reset tiến trình thành công' });
+    } catch (error) {
+        await conn.rollback();
+        console.error('Lỗi reset progress:', error);
+        res.status(500).json({ message: 'Lỗi server khi reset tiến trình' });
+    } finally {
+        conn.release();
+    }
+};
+
 export const getProgressMap = async (req, res) => {
     const conn = await db.getConnection();
     try {

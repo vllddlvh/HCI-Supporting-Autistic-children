@@ -1,4 +1,5 @@
 import os
+import re
 import cv2
 import torch
 import numpy as np
@@ -8,6 +9,21 @@ from flask_cors import CORS
 from torchvision import transforms
 from transformers import ViTForImageClassification
 from PIL import Image
+
+
+def remap_state_dict_keys(old_sd):
+    """Convert old transformers key names to new naming convention."""
+    new_sd = {}
+    for k, v in old_sd.items():
+        new_k = re.sub(r'vit\.encoder\.layer\.(\d+)\.', lambda m: f'vit.layers.{m.group(1)}.', k)
+        new_k = new_k.replace('.attention.attention.query', '.attention.q_proj')
+        new_k = new_k.replace('.attention.attention.key', '.attention.k_proj')
+        new_k = new_k.replace('.attention.attention.value', '.attention.v_proj')
+        new_k = new_k.replace('.attention.output.dense', '.attention.o_proj')
+        new_k = new_k.replace('.intermediate.dense', '.mlp.fc1')
+        new_k = new_k.replace('.output.dense', '.mlp.fc2')
+        new_sd[new_k] = v
+    return new_sd
 
 app = Flask(__name__)
 CORS(app)
@@ -66,8 +82,9 @@ try:
         ignore_mismatched_sizes=True
     )
     
-    # Load trọng số
+    # Load trọng số (remap keys cho tương thích transformers mới)
     state_dict = torch.load(VIT_PATH, map_location=device)
+    state_dict = remap_state_dict_keys(state_dict)
     base_model.load_state_dict(state_dict)
     
     # Wrapper class

@@ -10,13 +10,13 @@
         </p>
     </div>
 
-    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 p-4 min-h-[300px]">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4 min-h-[300px]">
       
       <TransitionGroup name="list">
         <div 
             v-for="card in activeCards" 
             :key="card.uuid"
-            class="w-[45%] md:w-48 aspect-square relative cursor-pointer transition-all duration-300 rounded-3xl overflow-hidden border-4 shadow-[0_14px_30px_rgba(15,23,42,0.12)] bg-white/80"
+            class="aspect-square relative cursor-pointer transition-all duration-300 rounded-2xl overflow-hidden shadow-md border-4"
             :class="getCardClass(card)"
             @click="selectCard(card)"
         >
@@ -112,7 +112,8 @@ const initGameRounds = (rawData) => {
         
         // Gộp (Flatten) thành 1 mảng các thẻ (4 thẻ)
         let roundCards = currentPairs.flat();
-
+        
+-
         shuffleArray(roundCards);
         
         chunkedRounds.push(roundCards);
@@ -133,8 +134,8 @@ const shuffleArray = (array) => {
 
 const getCardClass = (card) => {
     if (card.isMatched) return 'border-green-400 opacity-80 scale-95 cursor-default grayscale-[0.3]';
-    if (selectedCards.value.find(c => c.uuid === card.uuid)) return 'border-sky-500 ring-4 ring-sky-200 scale-105 z-10';
-    return 'border-white hover:border-sky-200 hover:scale-105';
+    if (selectedCards.value.find(c => c.uuid === card.uuid)) return 'border-blue-500 ring-4 ring-blue-200 scale-105 z-10';
+    return 'border-white hover:border-blue-200 hover:scale-105';
 };
 
 const selectCard = (card) => {

@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="kid-card w-full max-w-md overflow-hidden">
+  <div class="min-h-screen flex items-center justify-center bg-rose-50 p-4">
+    <div class="bg-white w-full max-w-md rounded-3xl shadow-xl shadow-rose-100 overflow-hidden">
       <div class="p-8 md:p-10">
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold text-slate-700">Tạo tài khoản mới 🚀</h2>
@@ -14,7 +14,7 @@
             <input 
               v-model="parentName" 
               type="text"
-              class="w-full px-4 py-3 rounded-2xl border-2 border-slate-100 focus:outline-none transition focus:ring-4 focus:ring-sky-200/70 focus:border-sky-300"
+              class="w-full px-4 py-3 rounded-xl border-2 border-rose-100 focus:border-rose-300 focus:outline-none transition"
               placeholder="Nguyễn Văn A">
           </div>
 
@@ -25,7 +25,7 @@
               v-model="childName"
               type="text"
               required
-              class="w-full px-4 py-3 rounded-2xl border-2 border-slate-100 focus:outline-none transition focus:ring-4 focus:ring-sky-200/70 focus:border-sky-300"
+              class="w-full px-4 py-3 rounded-xl border-2 border-rose-100 focus:border-rose-300 focus:outline-none transition"
               placeholder="Bé Bi (Tên hiển thị)">
           </div>
 
@@ -36,7 +36,7 @@
               v-model="email"
               type="email"
               required
-              class="w-full px-4 py-3 rounded-2xl border-2 border-slate-100 focus:outline-none transition focus:ring-4 focus:ring-sky-200/70 focus:border-sky-300"
+              class="w-full px-4 py-3 rounded-xl border-2 border-rose-100 focus:border-rose-300 focus:outline-none transition"
               placeholder="email@vidu.com">
           </div>
 
@@ -47,7 +47,7 @@
               v-model="password"
               type="password"
               required
-              class="w-full px-4 py-3 rounded-2xl border-2 border-slate-100 focus:outline-none transition focus:ring-4 focus:ring-sky-200/70 focus:border-sky-300"
+              class="w-full px-4 py-3 rounded-xl border-2 border-rose-100 focus:border-rose-300 focus:outline-none transition"
               placeholder="••••••••">
           </div>
 
@@ -58,17 +58,17 @@
 
           <button type="submit"
             :disabled="isLoading"
-            class="w-full kid-btn kid-btn-primary text-lg mt-4 disabled:opacity-70 disabled:cursor-not-allowed">
+            class="w-full bg-rose-300 hover:bg-rose-400 text-white font-bold py-4 rounded-2xl shadow-lg shadow-rose-200 active:scale-95 transition text-lg mt-4 disabled:opacity-70">
             {{ isLoading ? 'Đang xử lý...' : 'Đăng Ký Miễn Phí' }}
           </button>
         </form>
 
         <div class="mt-8 text-center text-slate-500">
           Đã có tài khoản?
-          <router-link to="/login" class="text-sky-600 font-extrabold hover:underline">Đăng nhập</router-link>
+          <router-link to="/login" class="text-rose-400 font-bold hover:underline">Đăng nhập</router-link>
         </div>
         <div class="mt-4 text-center">
-          <router-link to="/" class="text-sm text-slate-500 hover:text-slate-700 font-bold">← Về trang chủ</router-link>
+          <router-link to="/" class="text-sm text-slate-400 hover:text-slate-600">← Về trang chủ</router-link>
         </div>
       </div>
     </div>

@@ -1,11 +1,10 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="kid-card w-full max-w-md overflow-hidden">
+  <div class="min-h-screen flex items-center justify-center bg-rose-50 p-4">
+    <div class="bg-white w-full max-w-md rounded-3xl shadow-xl shadow-rose-100 overflow-hidden">
       <div class="p-8 md:p-10">
         <div class="text-center mb-8">
           <div
-            class="inline-flex items-center justify-center w-16 h-16 text-white rounded-full text-3xl font-extrabold mb-4 shadow-md"
-            style="background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 60%, #0ea5e9 100%);">
+            class="inline-flex items-center justify-center w-16 h-16 bg-rose-300 text-white rounded-full text-3xl font-bold mb-4 shadow-md">
             E</div>
           <h2 class="text-3xl font-bold text-slate-700">Chào mừng trở lại!</h2>
           <p class="text-slate-400 mt-2">Đăng nhập để tiếp tục bài học của bé</p>
@@ -19,7 +18,7 @@
               v-model="email" 
               type="email"
               required
-              class="w-full px-4 py-3 rounded-2xl border-2 border-slate-100 focus:outline-none transition focus:ring-4 focus:ring-sky-200/70 focus:border-sky-300"
+              class="w-full px-4 py-3 rounded-xl border-2 border-rose-100 focus:border-rose-300 focus:outline-none transition"
               placeholder="vi-du@gmail.com">
           </div>
           <div>
@@ -29,7 +28,7 @@
               v-model="password" 
               type="password"
               required
-              class="w-full px-4 py-3 rounded-2xl border-2 border-slate-100 focus:outline-none transition focus:ring-4 focus:ring-sky-200/70 focus:border-sky-300"
+              class="w-full px-4 py-3 rounded-xl border-2 border-rose-100 focus:border-rose-300 focus:outline-none transition"
               placeholder="••••••••">
           </div>
 
@@ -38,17 +37,18 @@
             {{ errorMessage }}
           </div>
 
-          <button type="submit" class="w-full kid-btn kid-btn-primary text-lg">
+          <button type="submit"
+            class="w-full bg-rose-300 hover:bg-rose-400 text-white font-bold py-4 rounded-2xl shadow-lg shadow-rose-200 active:scale-95 transition text-lg">
             Đăng Nhập
           </button>
         </form>
 
         <div class="mt-8 text-center text-slate-500">
           Chưa có tài khoản?
-          <router-link to="/register" class="text-sky-600 font-extrabold hover:underline">Đăng ký ngay</router-link>
+          <router-link to="/register" class="text-rose-400 font-bold hover:underline">Đăng ký ngay</router-link>
         </div>
         <div class="mt-4 text-center">
-          <router-link to="/" class="text-sm text-slate-500 hover:text-slate-700 font-bold">← Về trang chủ</router-link>
+          <router-link to="/" class="text-sm text-slate-400 hover:text-slate-600">← Về trang chủ</router-link>
         </div>
       </div>
     </div>

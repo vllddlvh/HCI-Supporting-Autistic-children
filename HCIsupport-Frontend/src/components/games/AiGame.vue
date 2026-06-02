@@ -27,10 +27,10 @@
         </div>
 
         <div class="flex justify-center gap-4 h-12 shrink-0">
-             <button class="kid-btn kid-btn-secondary px-6 text-slate-700 flex items-center gap-2">
+             <button class="bg-slate-100 hover:bg-slate-200 text-slate-600 px-6 rounded-xl font-bold transition flex items-center gap-2">
                <i class="fas fa-redo"></i> Xem lại
              </button>
-             <button @click="$emit('next', true)" class="kid-btn kid-btn-primary px-8 flex items-center gap-2">
+             <button @click="$emit('next', true)" class="bg-green-500 hover:bg-green-600 text-white px-8 rounded-xl font-bold shadow-lg transition active:scale-95 flex items-center gap-2">
                <i class="fas fa-check"></i> Hoàn thành
              </button>
         </div>
@@ -52,7 +52,7 @@
           </div>
         </div>
 
-        <div class="kid-card p-4 flex flex-col">
+        <div class="flex-1 bg-white rounded-3xl p-4 shadow-lg border border-slate-100 flex flex-col">
           
           <div class="flex justify-between items-center mb-2 border-b pb-2">
             <h3 class="font-bold text-slate-700 text-sm">📊 Cảm xúc Real-time</h3>
@@ -79,7 +79,7 @@
             </div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-3 text-center mt-auto border border-slate-100">
+          <div class="bg-slate-50 rounded-xl p-2 text-center mt-auto">
             <p class="text-xs text-slate-400">Cảm xúc chủ đạo</p>
             <p class="text-lg font-bold text-blue-600 capitalize animate-pulse">{{ currentDominantEmotion }}</p>
           </div>

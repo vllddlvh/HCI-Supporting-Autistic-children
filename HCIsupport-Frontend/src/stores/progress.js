@@ -6,7 +6,6 @@ import { useRouter } from 'vue-router';
 export const useProgressStore = defineStore('progress', () => {
   const router = useRouter();
 
-
   // --- STATE ---
   const stars = ref(0);
   const currentStreak = ref(0);
@@ -29,26 +28,14 @@ export const useProgressStore = defineStore('progress', () => {
     avatar: "/default-avatar.png"
   });
 
-  // Tải thông tin từ localStorage nếu có
-  function loadUserInfo() {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-        const user = JSON.parse(savedUser);
-        userInfo.value = {
-            parentName: user.parent_name || user.parentName || "Phụ Huynh",
-            childName: user.child_name || user.childName || "Bé Bi",
-            avatar: user.avatar || "/default-avatar.png"
-        };
-    }
-  }
-
   // --- ACTIONS ---
 
   // 1. Hàm LOGOUT
   function logout() {
       localStorage.removeItem('token');
       localStorage.removeItem('user_info');
-      
+      localStorage.removeItem('stars_local');
+
       stars.value = 0;
       currentStreak.value = 0;
       reportData.value = { 
@@ -60,14 +47,11 @@ export const useProgressStore = defineStore('progress', () => {
       };
 
       window.location.href = '/login';
-
   }
 
   // 2. Lấy Map (Danh sách bài học)
   async function fetchLevelsFromAPI() {
     try {
-
-
         const token = localStorage.getItem('token');
         const response = await axios.get('http://localhost:3000/api/progress-map', {
             headers: { Authorization: `Bearer ${token}` }
@@ -82,8 +66,6 @@ export const useProgressStore = defineStore('progress', () => {
   async function fetchReportData() {
     isLoading.value = true; 
     try {
-
-
         const token = localStorage.getItem('token');
         if (!token) {
             console.warn("Chưa đăng nhập, không thể tải báo cáo");
@@ -95,8 +77,10 @@ export const useProgressStore = defineStore('progress', () => {
         });
         const data = response.data;
         
-        // Cập nhật State từ API
-        stars.value = data.stats.stars;
+        // DB stars = SUM(score) từ activity log (0-100/câu) — KHÔNG dùng làm game stars
+        // Game stars chỉ được quản lý qua addStars() và localStorage
+        const localStars = parseInt(localStorage.getItem('stars_local') || '0');
+        stars.value      = localStars;
         currentStreak.value = data.stats.streak;
         
         reportData.value.accuracy = data.stats.accuracy;
@@ -139,22 +123,25 @@ export const useProgressStore = defineStore('progress', () => {
     return !level.lessons[prevType]; // Nếu bài trước chưa xong -> Khóa bài này
   }
 
-  function addStars(count) {
-      stars.value += count;
+  async function resetProgress() {
+    try {
+      const token = localStorage.getItem('token');
+      await axios.delete('http://localhost:3000/api/progress-map/reset', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      await fetchLevelsFromAPI();
+      localStorage.removeItem('stars_local');
+      stars.value = 0;
+      currentStreak.value = 0;
+    } catch (error) {
+      console.error('Lỗi reset progress:', error);
+      throw error;
+    }
   }
 
-  // 5. Đánh dấu hoàn thành bài học (để mở khóa bài tiếp theo)
-  function completeLesson(levelId, lessonType) {
-      const level = levels.value.find(l => l.id == levelId);
-      if (!level) return;
-
-      if (!level.lessons) level.lessons = {};
-
-      // Đánh dấu bài hiện tại là đã hoàn thành
-      level.lessons[lessonType] = true;
-
-      // Nếu level đang bị khóa mà người dùng hoàn thành bài (trường hợp mock/dev), mở khóa luôn
-      if (level.locked) level.locked = false;
+  function addStars(count) {
+      stars.value += count;
+      localStorage.setItem('stars_local', String(stars.value));
   }
 
   // 5. Xử lý Mở Rương
@@ -179,8 +166,8 @@ export const useProgressStore = defineStore('progress', () => {
       }
   }
 
-  return { 
+  return {
     stars, currentStreak, levels, userInfo, reportData, isLoading,
-    fetchLevelsFromAPI, fetchReportData, isLessonLocked, claimChest, logout, addStars, completeLesson, loadUserInfo
+    fetchLevelsFromAPI, fetchReportData, isLessonLocked, claimChest, logout, addStars, resetProgress
   };
 });

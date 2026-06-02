@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Report from '../views/Report.vue'
 import Profile from '../views/Profile.vue'
+import EmotionCheck from '../views/EmotionCheck.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -46,10 +47,16 @@ const router = createRouter({
        component: Report 
     },
 
-    { 
-        path: '/profile', 
-        name: 'profile', 
-        component: Profile 
+    {
+        path: '/profile',
+        name: 'profile',
+        component: Profile
+    },
+
+    {
+      path: '/emotion',
+      name: 'emotion',
+      component: EmotionCheck
     },
   ]
 })

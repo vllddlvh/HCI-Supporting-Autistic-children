@@ -2,7 +2,7 @@
   <div class="w-full max-w-4xl mx-auto flex flex-col lg:flex-row gap-8 items-start animate-fade-in min-h-[500px]">
     
     <div class="w-full lg:w-1/3 flex flex-col items-center text-center space-y-4">
-      <div class="kid-card p-4 w-full">
+      <div class="bg-white p-4 rounded-3xl shadow-md border-2 border-blue-100 w-full">
         <h3 class="text-lg font-bold text-blue-600 mb-2">🎥 Hướng dẫn</h3>
         <div class="aspect-square rounded-2xl overflow-hidden border-4 border-yellow-300 shadow-sm mb-3 relative group">
            <img :src="data.guideImage || data.image || data.video_url" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Guide">
@@ -28,24 +28,24 @@
 
       <div class="flex justify-center items-center gap-6">
         <div v-if="!capturedImage" class="relative group">
-           <button @click="takePhoto" :disabled="isAnalyzing" class="w-20 h-20 bg-white/90 rounded-full border-4 border-slate-200 flex items-center justify-center shadow-lg active:scale-90 transition group-hover:border-sky-400">
+           <button @click="takePhoto" :disabled="isAnalyzing" class="w-20 h-20 bg-white rounded-full border-4 border-slate-200 flex items-center justify-center shadow-lg active:scale-90 transition group-hover:border-blue-400">
              <div class="w-16 h-16 bg-red-500 rounded-full border-4 border-white group-hover:bg-red-600 transition"></div>
            </button>
            <p class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-slate-400 font-bold text-sm whitespace-nowrap">Bấm để chụp</p>
         </div>
 
         <div v-else class="flex gap-4 w-full">
-           <button @click="resetCamera" class="flex-1 kid-btn kid-btn-secondary text-slate-700">
+           <button @click="resetCamera" class="flex-1 bg-slate-100 text-slate-600 font-bold py-3 rounded-xl hover:bg-slate-200 transition border-2 border-slate-200">
              <i class="fas fa-redo mr-2"></i> Chụp lại
            </button>
            
-           <button v-if="aiResult && aiResult.isMatch" @click="$emit('next', true)" class="flex-1 kid-btn kid-btn-primary">
+           <button v-if="aiResult && aiResult.isMatch" @click="$emit('next', true)" class="flex-1 bg-green-500 text-white font-bold py-3 rounded-xl hover:bg-green-600 transition shadow-lg border-b-4 border-green-700 active:border-b-0 active:translate-y-1">
              Tiếp tục <i class="fas fa-arrow-right ml-2"></i>
            </button>
         </div>
       </div>
 
-      <div v-if="aiResult" class="kid-card rounded-2xl p-6 border-2 animate-slide-up" 
+      <div v-if="aiResult" class="bg-white rounded-2xl p-6 shadow-lg border-2 animate-slide-up" 
            :class="aiResult.isMatch ? 'border-green-400 bg-green-50' : 'border-orange-200'">
         <div class="flex items-start gap-4">
           <div class="text-5xl animate-bounce">{{ aiResult.emoji }}</div>
