@@ -209,9 +209,9 @@ INSERT INTO media_asset (type, url, emotion_id) VALUES
 ('IMAGE', 'https://i.pinimg.com/1200x/c9/f2/e8/c9f2e836ff590556ebebd37f3ebe13f6.jpg', @EMO_BUON),  -- ID 11
 ('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 12
 ('IMAGE', 'https://i.pinimg.com/736x/c5/e2/23/c5e223e046250b6e012933249c1d9335.jpg', @EMO_VUI),    -- ID 13
-('IMAGE', 'https://i.pinimg.com/1200x/3d/f3/f0/3df3f0fdfdd2d267878e691a84dd2e9f.jpg', @EMO_VUI),    -- ID 14
+('IMAGE', 'https://i.pinimg.com/1200x/65/5b/39/655b397d96f7c3dda88dba79839d2c7a.jpg', @EMO_VUI),    -- ID 14
 ('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 15
-('IMAGE', 'https://i.pinimg.com/736x/5d/f2/5f/5df25f0e44c72d4cb5c96c9343d369b0.jpg', @EMO_BUON),  -- ID 16
+('IMAGE', 'https://i.pinimg.com/736x/58/61/3b/58613bbd70cb529bd699cd9e7de5d3ec.jpg', @EMO_BUON),  -- ID 16
 ('IMAGE', 'https://i.pinimg.com/736x/cd/32/e7/cd32e73cc8eaa8d9ba8eba03182832d4.jpg', @EMO_GIAN),  -- ID 17
 ('IMAGE', 'https://i.pinimg.com/736x/54/61/61/54616108d059cf0593ae8ebb7d349dbe.jpg', @EMO_GIAN);  -- ID 18
 
