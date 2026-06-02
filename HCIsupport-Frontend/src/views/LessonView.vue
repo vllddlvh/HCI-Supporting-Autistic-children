@@ -154,7 +154,7 @@ onMounted(() => {
 
 // --- METHODS ---
 const goBack = () => {
-  router.push('/app');
+  router.push('/journey');
 };
 
 const logLessonActivity = async (isCorrect, questionId = null, chosenEmotionId = null, duration = null, stats = null) => {

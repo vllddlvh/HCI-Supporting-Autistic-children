@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen md:pl-64 pt-6 bg-slate-50 font-quicksand">
+  <div class="min-h-screen md:pl-64 pt-6 custom-theme-bg font-quicksand">
     <Sidebar />
 
     <div class="max-w-5xl mx-auto px-6 pb-20">
@@ -7,7 +7,7 @@
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
           <h1 class="text-3xl font-bold text-slate-700 flex items-center gap-3">
-            <i class="fas fa-chart-line text-rose-500"></i> Báo cáo học tập
+            <i class="fas fa-medal text-[var(--theme-primary-hover)]"></i> Báo cáo học tập
           </h1>
           <p class="text-slate-400 text-sm mt-1">Theo dõi sự tiến bộ theo Cấp độ và Kỹ năng</p>
         </div>
@@ -58,7 +58,7 @@
 
         <div class="lg:col-span-2 bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
           <h2 class="text-lg font-bold text-slate-700 mb-6 flex items-center justify-between">
-              <span class="flex items-center gap-2"><i class="fas fa-laptop-code text-blue-500"></i> Kỹ năng bài học</span>
+              <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-500"></i> Kỹ năng bài học</span>
               <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                   Tỷ lệ chính xác
               </span>
@@ -101,7 +101,7 @@
           </div>
           
           <div v-else class="h-64 flex flex-col items-center justify-center text-slate-300">
-              <i class="fas fa-clipboard-list text-5xl mb-3 opacity-20"></i>
+              <i class="fas fa-smile text-5xl mb-3 opacity-20"></i>
               <p>Chưa có dữ liệu học tập.</p>
           </div>
 
@@ -157,12 +157,12 @@ const computedRadarData = computed(() => {
 
 // Helper Functions hiển thị icon/màu sắc (Giữ nguyên hoặc chỉnh sửa nhẹ)
 const getLessonIcon = (code) => {
-    const map = { 'FLASHCARD': 'fa-images', 'CONTEXT': 'fa-book-reader', 'MATCHING': 'fa-puzzle-piece', 'TRAINING': 'fa-theater-masks', 'AI': 'fa-robot' };
+    const map = { 'FLASHCARD': 'fa-images', 'CONTEXT': 'fa-book-reader', 'MATCHING': 'fa-puzzle-piece', 'TRAINING': 'fa-theater-masks', 'AI': 'fa-magic' };
     return map[code] || 'fa-star';
 };
 
 const getLessonSubtitle = (code) => {
-    const map = { 'FLASHCARD': 'Nhận diện hình ảnh', 'CONTEXT': 'Hiểu ngữ cảnh', 'MATCHING': 'Ghép cặp cảm xúc', 'TRAINING': 'Thực hành biểu cảm', 'AI': 'Tương tác AI' };
+    const map = { 'FLASHCARD': 'Nhận diện hình ảnh', 'CONTEXT': 'Hiểu ngữ cảnh', 'MATCHING': 'Ghép cặp cảm xúc', 'TRAINING': 'Thực hành biểu cảm', 'AI': 'Gương Thần kỳ diệu' };
     return map[code] || 'Kỹ năng chung';
 };
 

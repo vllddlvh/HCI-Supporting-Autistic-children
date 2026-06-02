@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen md:pl-64 pt-6 bg-slate-50">
+  <div class="min-h-screen md:pl-64 pt-6 custom-theme-bg">
     <Sidebar />
 
     <div class="max-w-4xl mx-auto px-6 pb-20">
@@ -9,7 +9,7 @@
           <i class="fas fa-smile text-rose-400"></i> Kiểm tra cảm xúc
         </h2>
         <p class="text-slate-500 text-sm mt-1">
-          Nhìn vào camera — AI sẽ nhận diện cảm xúc của bạn theo thời gian thực.
+          Hãy nhìn vào camera và cười thật tươi để bạn Gương Thần nhận biết cảm xúc của bé nhé! 💖
         </p>
       </div>
 
@@ -25,14 +25,14 @@
           <!-- REC badge -->
           <div class="absolute top-3 right-3 flex items-center gap-2 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
             <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"/>
-            <span class="text-white text-[10px] font-bold tracking-widest">AI REC</span>
+            <span class="text-white text-[10px] font-bold tracking-widest">🔴 GƯƠNG THẦN REC</span>
           </div>
 
           <!-- Offline overlay -->
           <div v-if="!isConnected"
                class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 gap-2">
             <i class="fas fa-circle-notch fa-spin text-white text-2xl"/>
-            <span class="text-white text-sm">Đang kết nối AI...</span>
+            <span class="text-white text-sm">Gương thần đang kết nối...</span>
           </div>
         </div>
 
@@ -41,8 +41,8 @@
 
           <div class="flex justify-between items-center border-b border-slate-100 pb-3">
             <h3 class="font-bold text-slate-700 flex items-center gap-2">
-              <i class="fas fa-chart-bar text-rose-400"/>
-              Cảm xúc Real-time
+              <i class="fas fa-magic text-rose-400"/>
+              Cảm xúc lúc này của bé
             </h3>
             <span class="text-xs font-bold px-2 py-1 rounded-full"
                   :class="isConnected ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-400'">

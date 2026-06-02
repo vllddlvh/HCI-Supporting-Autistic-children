@@ -22,7 +22,7 @@
 
         <div v-if="isAnalyzing" class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white z-20 backdrop-blur-sm">
           <div class="animate-spin text-5xl mb-4">✨</div>
-          <p class="font-bold text-xl animate-pulse">AI đang nhìn kỹ...</p>
+          <p class="font-bold text-xl animate-pulse">Gương thần đang nhìn thật kỹ nhé... ✨</p>
         </div>
       </div>
 

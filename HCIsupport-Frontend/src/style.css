@@ -3,14 +3,118 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Default Theme = Forest Green Theme */
+  --theme-bg-from: #f0fdf4; /* green-50 */
+  --theme-bg-to: #ffffff;
+  --theme-primary: #86efac; /* green-300 */
+  --theme-primary-hover: #16a34a; /* green-600 */
+  --theme-primary-light: #f0fdf4; /* green-50 */
+  --theme-text-title: #14532d; /* green-900 */
+  --theme-text-body: #166534; /* green-800 */
+  --theme-card-bg: #ffffff;
+  --theme-border: #dcfce7;
+  --theme-shadow-color: rgba(22, 163, 74, 0.1);
+}
+
+.theme-ocean {
+  --theme-bg-from: #ecfeff; /* cyan-50 */
+  --theme-bg-to: #ffffff;
+  --theme-primary: #38bdf8; /* sky-400 */
+  --theme-primary-hover: #0284c7; /* sky-700 */
+  --theme-primary-light: #f0f9ff; /* sky-50 */
+  --theme-text-title: #0f172a; /* slate-900 */
+  --theme-text-body: #475569; /* slate-600 */
+  --theme-card-bg: #ffffff;
+  --theme-border: #e2e8f0;
+  --theme-shadow-color: rgba(56, 189, 248, 0.12);
+}
+
+.theme-peach {
+  --theme-bg-from: #fff5f5; /* rose-50 */
+  --theme-bg-to: #ffffff;
+  --theme-primary: #fda4af; /* rose-300 */
+  --theme-primary-hover: #f43f5e; /* rose-500 */
+  --theme-primary-light: #fff1f2; /* rose-50 */
+  --theme-text-title: #334155; /* slate-700 */
+  --theme-text-body: #64748b; /* slate-500 */
+  --theme-card-bg: #ffffff;
+  --theme-border: #f1f5f9; /* slate-100 */
+  --theme-shadow-color: rgba(244, 63, 94, 0.1);
+}
+
+.theme-forest {
+  --theme-bg-from: #f0fdf4; /* green-50 */
+  --theme-bg-to: #ffffff;
+  --theme-primary: #86efac; /* green-300 */
+  --theme-primary-hover: #16a34a; /* green-600 */
+  --theme-primary-light: #f0fdf4; /* green-50 */
+  --theme-text-title: #14532d; /* green-900 */
+  --theme-text-body: #166534; /* green-800 */
+  --theme-card-bg: #ffffff;
+  --theme-border: #dcfce7;
+  --theme-shadow-color: rgba(22, 163, 74, 0.1);
+}
+
+.theme-sunset {
+  --theme-bg-from: #fffbeb; /* amber-50 */
+  --theme-bg-to: #ffffff;
+  --theme-primary: #fde047; /* yellow-300 */
+  --theme-primary-hover: #d97706; /* amber-600 */
+  --theme-primary-light: #fffbeb; /* amber-50 */
+  --theme-text-title: #78350f; /* amber-900 */
+  --theme-text-body: #92400e; /* amber-800 */
+  --theme-card-bg: #ffffff;
+  --theme-border: #fef3c7;
+  --theme-shadow-color: rgba(217, 119, 6, 0.1);
+}
+
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: #f8fafc; /* Màu nền xám nhẹ dịu mắt */
 }
 
-body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: #f8fafc;
+/* Custom premium styling classes based on active theme */
+.custom-theme-bg {
+  background: linear-gradient(180deg, var(--theme-bg-from) 0%, var(--theme-bg-to) 100%);
+}
+
+.custom-theme-card {
+  background: var(--theme-card-bg);
+  border: 1.5px solid var(--theme-border);
+  box-shadow: 0 12px 35px var(--theme-shadow-color);
+  backdrop-filter: blur(12px);
+}
+
+.custom-theme-text-title {
+  color: var(--theme-text-title);
+}
+
+.custom-theme-text-body {
+  color: var(--theme-text-body);
+}
+
+.custom-theme-btn {
+  background: var(--theme-primary);
+  color: #1e293b;
+  font-weight: 700;
+  box-shadow: 0 6px 0 var(--theme-primary-hover), 0 10px 20px var(--theme-shadow-color);
+  transition: all 0.15s ease-out;
+}
+
+.custom-theme-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0px 0 var(--theme-primary-hover), 0 4px 8px var(--theme-shadow-color);
+}
+
+.custom-theme-border {
+  border-color: var(--theme-primary);
+}
+
+.custom-theme-sidebar-active {
+  background: var(--theme-primary-light) !important;
+  color: var(--theme-primary-hover) !important;
+  border-color: var(--theme-primary) !important;
 }
 
 /* --- HỆ THỐNG NÚT TRÒN 3D (GAME STYLE) --- */

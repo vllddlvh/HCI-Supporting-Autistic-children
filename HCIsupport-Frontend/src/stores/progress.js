@@ -25,16 +25,46 @@ export const useProgressStore = defineStore('progress', () => {
   const userInfo = ref({
     parentName: "Phụ Huynh",
     childName: "Bé Bi",
-    avatar: "/default-avatar.png"
+    avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"
   });
 
+  const theme = ref(localStorage.getItem('app_theme') || 'default');
+
   // --- ACTIONS ---
+
+  function changeTheme(newTheme) {
+    theme.value = newTheme;
+    localStorage.setItem('app_theme', newTheme);
+  }
+
+  async function updateProfile(childName, parentName, avatar) {
+    try {
+      const token = localStorage.getItem('token');
+      await axios.put('http://localhost:3000/api/user/profile', {
+        childName,
+        parentName,
+        avatar
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      userInfo.value = {
+        childName,
+        parentName,
+        email: userInfo.value.email,
+        avatar
+      };
+    } catch (error) {
+      console.error("Lỗi cập nhật profile:", error);
+      throw error;
+    }
+  }
 
   // 1. Hàm LOGOUT
   function logout() {
       localStorage.removeItem('token');
       localStorage.removeItem('user_info');
       localStorage.removeItem('stars_local');
+      localStorage.removeItem('app_theme');
 
       stars.value = 0;
       currentStreak.value = 0;
@@ -56,7 +86,12 @@ export const useProgressStore = defineStore('progress', () => {
         const response = await axios.get('http://localhost:3000/api/progress-map', {
             headers: { Authorization: `Bearer ${token}` }
         });
-        levels.value = response.data;
+        
+        const claimedChests = JSON.parse(localStorage.getItem('chests_claimed_local') || '[]');
+        levels.value = response.data.map(lvl => ({
+            ...lvl,
+            chestClaimed: claimedChests.includes(lvl.id)
+        }));
     } catch (error) {
         console.error("Lỗi tải tiến trình:", error);
     }
@@ -129,6 +164,7 @@ export const useProgressStore = defineStore('progress', () => {
       await axios.delete('http://localhost:3000/api/progress-map/reset', {
         headers: { Authorization: `Bearer ${token}` }
       });
+      localStorage.removeItem('chests_claimed_local');
       await fetchLevelsFromAPI();
       localStorage.removeItem('stars_local');
       stars.value = 0;
@@ -150,24 +186,50 @@ export const useProgressStore = defineStore('progress', () => {
           const level = levels.value.find(l => l.id === levelId);
           if (!level || level.chestClaimed) return;
 
-          const token = localStorage.getItem('token');
-          const response = await axios.post(`http://localhost:3000/api/progress-map/claim-chest`, {
-              levelId: levelId
-          }, {
-              headers: { Authorization: `Bearer ${token}` }
-          });
-          
-          const rewardStars = response.data.reward || 10; 
+          // Cộng sao thưởng (15 sao cho rương thần kỳ!)
+          const rewardStars = 15;
           addStars(rewardStars);
+
+          // Lưu trạng thái đã mở rương vào localStorage
+          const claimedChests = JSON.parse(localStorage.getItem('chests_claimed_local') || '[]');
+          if (!claimedChests.includes(levelId)) {
+              claimedChests.push(levelId);
+              localStorage.setItem('chests_claimed_local', JSON.stringify(claimedChests));
+          }
+
           level.chestClaimed = true; 
+
+          // Cố gắng gọi API, nếu backend chưa hỗ trợ thì bỏ qua không báo lỗi
+          try {
+              const token = localStorage.getItem('token');
+              await axios.post(`http://localhost:3000/api/progress-map/claim-chest`, {
+                  levelId: levelId
+              }, {
+                  headers: { Authorization: `Bearer ${token}` }
+              });
+          } catch (apiError) {
+              console.warn("Backend api/progress-map/claim-chest chưa được định nghĩa. Đã lưu trạng thái rương cục bộ thành công.");
+          }
 
       } catch (error) {
           console.error("Lỗi khi mở rương:", error);
       }
   }
 
+  async function completeLesson(levelId, lessonType) {
+    const level = levels.value.find(l => l.id == levelId);
+    if (level && level.lessons) {
+      level.lessons[lessonType] = true;
+    }
+    try {
+      await fetchLevelsFromAPI();
+    } catch (error) {
+      console.error("Lỗi sync levels sau hoàn thành bài học:", error);
+    }
+  }
+
   return {
-    stars, currentStreak, levels, userInfo, reportData, isLoading,
-    fetchLevelsFromAPI, fetchReportData, isLessonLocked, claimChest, logout, addStars, resetProgress
+    stars, currentStreak, levels, userInfo, reportData, isLoading, theme, changeTheme, updateProfile,
+    fetchLevelsFromAPI, fetchReportData, isLessonLocked, claimChest, logout, addStars, resetProgress, completeLesson
   };
 });

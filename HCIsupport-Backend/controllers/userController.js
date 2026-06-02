@@ -72,3 +72,24 @@ export const getUserProfile = async (req, res) => {
         res.status(500).json({ message: "Lỗi server" });
     }
 };
+
+export const updateUserProfile = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { childName, parentName, avatar } = req.body;
+
+        if (!childName) {
+            return res.status(400).json({ message: "Tên bé không được để trống" });
+        }
+
+        await db.query(
+            `UPDATE user SET username = ?, parent_name = ?, avatar = ? WHERE id = ?`,
+            [childName, parentName, avatar, userId]
+        );
+
+        res.status(200).json({ message: "Cập nhật hồ sơ thành công" });
+    } catch (error) {
+        console.error("Lỗi cập nhật profile:", error);
+        res.status(500).json({ message: "Lỗi server" });
+    }
+};

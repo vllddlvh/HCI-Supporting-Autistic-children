@@ -5,7 +5,7 @@
       <h2 class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">
         {{ data.instruction || "Quan sát và thể hiện cảm xúc nhé!" }}
       </h2>
-      <p class="text-slate-500 text-lg">Hãy nhìn vào camera và bắt chước biểu cảm trong video</p>
+      <p class="text-slate-500 text-lg">Hãy cùng bắt chước biểu cảm đáng yêu trong video nhé!</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[500px]">
@@ -44,18 +44,18 @@
           
           <div class="absolute top-3 right-3 flex items-center gap-2 bg-black/40 px-2 py-1 rounded-md backdrop-blur">
             <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <span class="text-white text-[10px] font-bold tracking-widest">AI REC</span>
+            <span class="text-white text-[10px] font-bold tracking-widest">🔴 GƯƠNG THẦN REC</span>
           </div>
 
           <div v-if="!isConnected" class="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
-             <span class="text-white text-xs animate-pulse">Đang kết nối AI...</span>
+              <span class="text-white text-xs animate-pulse">Gương thần đang kết nối...</span>
           </div>
         </div>
 
         <div class="flex-1 bg-white rounded-3xl p-4 shadow-lg border border-slate-100 flex flex-col">
           
           <div class="flex justify-between items-center mb-2 border-b pb-2">
-            <h3 class="font-bold text-slate-700 text-sm">📊 Cảm xúc Real-time</h3>
+            <h3 class="font-bold text-slate-700 text-sm">💖 Cảm xúc lúc này của bé</h3>
             <span class="text-xs font-bold" :class="isConnected ? 'text-green-600' : 'text-red-400'">
                 {{ isConnected ? 'Online' : 'Offline' }}
             </span>
