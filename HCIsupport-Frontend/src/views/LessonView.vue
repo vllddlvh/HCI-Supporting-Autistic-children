@@ -45,7 +45,7 @@
       </div>
     </header>
 
-    <main class="flex-1 flex flex-col items-center justify-center px-4 pb-20 w-full overflow-y-auto relative">
+    <main class="flex-1 flex flex-col items-center justify-center px-4 pb-6 w-full overflow-y-auto relative">
 
       <div v-if="isLoading" class="text-center text-slate-400 mt-10">
         <div class="animate-spin text-4xl mb-4 text-emerald-400"><i class="fas fa-spinner"></i></div>

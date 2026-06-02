@@ -318,7 +318,7 @@ INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion
 
 -- --- 5. AI (1 Bài) ---
 INSERT INTO lesson_training_ai (lesson_type_id, emotion_group_id, target_emotion_id, instruction, video_url, success_message, tips) VALUES
-(@AI_TYPE, @LEVEL_1, @EMO_VUI, 'Quan sát video và bắt chước biểu cảm Vui vẻ. AI sẽ chấm điểm!', 'https://www.youtube.com/shorts/LGobh6OL_zc', 'AI nói con đã biểu lộ Vui vẻ rất thành công!', 'Hãy thử giữ biểu cảm lâu hơn một chút nhé.');
+(@AI_TYPE, @LEVEL_1, @EMO_VUI, 'Quan sát video và bắt chước biểu cảm Vui vẻ. AI sẽ chấm điểm!', 'https://www.youtube.com/watch?v=51lYAbCttAE', 'AI nói con đã biểu lộ Vui vẻ rất thành công!', 'Hãy thử giữ biểu cảm lâu hơn một chút nhé.');
 
 SELECT 'Dữ liệu mẫu đã được thêm thành công!' AS Status;
 
