@@ -214,15 +214,15 @@
           </div>
 
           <!-- Car image with bounce-on-change -->
-          <div style="position:relative;width:96px;height:96px;display:flex;align-items:center;justify-content:center">
+          <div style="position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center">
             <Transition name="car-swap">
               <img :key="`${selectedModelIndex}-${selectedColorIndex}`"
                    :src="selectedCarImg"
                    :style="{
-                     width:'82px', height:'auto', imageRendering:'pixelated',
+                     width:'144px', height:'auto', imageRendering:'pixelated',
                      filter: currentCarUnlocked
-                       ? 'drop-shadow(0 4px 16px rgba(0,0,0,.6))'
-                       : 'drop-shadow(0 4px 16px rgba(0,0,0,.6)) grayscale(1) brightness(.55)',
+                       ? 'drop-shadow(0 6px 20px rgba(0,0,0,.65))'
+                       : 'drop-shadow(0 6px 20px rgba(0,0,0,.65)) grayscale(1) brightness(.55)',
                      position:'absolute',
                    }"
                    draggable="false"/>
