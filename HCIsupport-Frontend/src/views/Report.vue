@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen md:pl-64 pt-6 custom-theme-bg font-quicksand">
+  <div class="min-h-screen md:pl-72 pt-6 custom-theme-bg font-quicksand">
     <Sidebar />
 
     <div class="max-w-5xl mx-auto px-6 pb-20">

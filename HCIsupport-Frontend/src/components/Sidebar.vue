@@ -1,13 +1,13 @@
 <template>
     <aside
-        class="hidden md:flex flex-col w-64 h-screen bg-[#fdfbf8] border-r-2 border-amber-100/50 p-6 fixed left-0 top-0 z-20 font-quicksand select-none">
+        class="hidden md:flex flex-col w-72 h-screen bg-[#fdfbf8] border-r-2 border-amber-100/50 p-6 fixed left-0 top-0 z-20 font-quicksand select-none">
         
         <!-- Pinned Brand Title -->
-        <div class="flex items-center gap-2.5 mb-6 cursor-pointer group" @click="$router.push('/')">
-            <img src="../assets/logo.png" class="w-11 h-11 rounded-xl bg-white object-cover border border-amber-100 shadow-sm group-hover:rotate-6 transition duration-300 shrink-0" alt="Logo" />
-            <span class="text-[23px] font-black tracking-normal drop-shadow-[0_2px_4px_rgba(16,185,129,0.12)] whitespace-nowrap">
+        <div class="flex items-center gap-2 mb-6 cursor-pointer group" @click="$router.push('/')">
+            <img src="../assets/logo.png" class="w-12 h-12 rounded-xl bg-white object-cover border border-amber-100 shadow-sm group-hover:rotate-6 transition duration-300 shrink-0" alt="Logo" />
+            <span class="text-[26px] font-black tracking-normal drop-shadow-[0_2px_4px_rgba(16,185,129,0.12)] whitespace-nowrap">
                 <span class="text-emerald-600">Trạm</span>
-                <span class="text-[#007A5A] ml-1">Cảm Xúc</span>
+                <span class="text-[#007A5A] ml-0.5">Cảm Xúc</span>
             </span>
         </div>
 

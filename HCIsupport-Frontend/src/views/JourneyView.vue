@@ -8,7 +8,7 @@
     <div class="absolute bottom-[30%] right-[10%] text-4xl select-none pointer-events-none opacity-20 animate-float-slow-2">🌸</div>
 
     <!-- Pinned Desktop Sidebar -->
-    <div class="hidden md:block w-64 shrink-0 h-full border-r border-slate-200 bg-white z-20 relative">
+    <div class="hidden md:block w-72 shrink-0 h-full border-r border-slate-200 bg-white z-20 relative">
       <Sidebar />
     </div>
 
